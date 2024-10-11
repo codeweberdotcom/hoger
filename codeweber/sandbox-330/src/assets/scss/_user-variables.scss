@@ -1,0 +1,34 @@
+// Use this to overwrite Bootstrap and theme variables
+
+// Example of a variable override to change the primary color.
+// Remove the "//" to uncomment it and see it in action.
+$primary: #9c886f;
+$dark: #292728 !default;
+
+// Example of a variable override to change the theme font.
+// Remove the "//" to uncomment it and see it in action.
+// $font-family-sans-serif: "Arial", sans-serif;
+
+// To use a custom font, first add the font files inside folder src/assets/fonts/
+// Then use the example below to import your custom font.
+// Remove the "//" to uncomment it and see it in action.
+$path-to-fonts: '../fonts/gillsanspro/stylesheet.css';
+$font-family-sans-serif: "Gill Sans Pro Cyrillic", sans-serif;
+
+// To use a Google font use the example below.
+// Remove the "//" to uncomment it and see it in action.
+
+//$path-to-fonts: "https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap";
+//$font-family-sans-serif: "Montserrat", sans-serif;
+
+//$path-to-fonts: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap";
+//$font-family-sans-serif: "Inter", sans-serif;
+
+
+ $nav-link-font-weight: 300 !default;
+ $btn-font-weight: 400 !default;
+ $headings-font-weight: 300 !default;
+ $display-font-weight: 300 !default;
+ $lead-font-weight: 300 !default;
+
+ $font-weight-bold: 300 !default;
