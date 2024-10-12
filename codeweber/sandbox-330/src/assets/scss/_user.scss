@@ -30,13 +30,13 @@ background-color: #292728;
 
 
 
-header {
+header, .navbar-stick {
   position: relative;
   padding-bottom: 5px;
   border-bottom: 1px solid transparent;
 }
 
-header::after {
+header::after, .navbar-stick::after {
   content: '';
   position: absolute;
   left: 0;
