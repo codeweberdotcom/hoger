@@ -24,7 +24,7 @@
 //   border-bottom: 1px solid #9c886f !important;
 // }
 
-.navbar.classic.navbar-dark.fixed.navbar-stick {
+.fixed.navbar-stick {
 background-color: #292728;
 }
 
@@ -86,4 +86,8 @@ body {
 
 .form-control:focus {
   border: 1px solid #9c886f;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
 }

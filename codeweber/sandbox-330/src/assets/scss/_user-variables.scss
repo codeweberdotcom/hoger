@@ -5,6 +5,14 @@
 $primary: #9c886f;
 $dark: #292728 !default;
 
+$display-font-sizes: (
+  1: 1.86rem,
+  2: 1.71rem,
+  3: 1.55rem,
+  4: 1.4rem,
+  5: 1.24rem,
+  6: 1.09rem,
+) !default;
 
 
 // Example of a variable override to change the theme font.
@@ -32,7 +40,5 @@ $font-family-sans-serif: "Gill Sans Pro Cyrillic", sans-serif;
  $headings-font-weight: 300 !default;
  $display-font-weight: 300 !default;
  $lead-font-weight: 300 !default;
-
  $font-weight-bold: 300 !default;
-
  $gray-800: #21262c !important;
