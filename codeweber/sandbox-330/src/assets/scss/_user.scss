@@ -79,3 +79,11 @@ header::after, .navbar-stick::after {
 body {
   background: #292728;
 }
+
+.form-control {
+  border: 1px solid #9c886f9c;
+}
+
+.form-control:focus {
+  border: 1px solid #9c886f;
+}
