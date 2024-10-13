@@ -54,7 +54,7 @@ $terms = get_terms([
                   </figure>
                   <div class="project-details d-flex justify-content-center flex-column">
                      <div class="post-header">
-                        <div class="post-category text-line mb-3 text-purple"><?php echo implode(', ', $taxonomy_list); ?></div>
+                        <div class="post-category text-line mb-3 text-primary"><?php echo implode(', ', $taxonomy_list); ?></div>
                         <h3 class="post-title"><?php echo esc_html($post->post_title); ?></h3>
                      </div>
                      <!-- /.post-header -->

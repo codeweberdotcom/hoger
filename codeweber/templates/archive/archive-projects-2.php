@@ -45,7 +45,7 @@ global $codeweber;
                         <div class="card-body">
                            <div class="post-header">
 
-                              <div class="post-category text-line text-purple mb-3"><?php echo wp_get_post_terms(get_the_ID(), 'projects_category')[0]->name; ?></div>
+                              <div class="post-category text-line text-primary mb-3"><?php echo wp_get_post_terms(get_the_ID(), 'projects_category')[0]->name; ?></div>
                               <h2 class="post-title mb-3"><?php the_title(); ?></h2>
                            </div>
                            <!-- /.post-header -->

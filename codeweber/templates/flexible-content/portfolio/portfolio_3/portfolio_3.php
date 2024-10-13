@@ -75,7 +75,7 @@ $block = new CW_Settings(
                      if ($row_num == 0) { ?>
                         <div class="item col-md-6">
                            <figure class="lift <?php echo get_theme_mod('codeweber_image'); ?> mb-6"><a href="<?php echo the_permalink(); ?>"> <img src="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_features_1'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_features_1'); ?>" alt="" /></a></figure>
-                           <div class="post-category text-line mb-3 text-violet"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
+                           <div class="post-category text-line mb-3 text-primary"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
                            <h2 class="post-title h3"><?php echo get_the_title(); ?></h2>
                         </div>
                         <!-- /.item -->
@@ -83,7 +83,7 @@ $block = new CW_Settings(
 
                         <div class="item col-md-6">
                            <figure class="lift <?php echo get_theme_mod('codeweber_image'); ?> mb-6"><a href="<?php echo the_permalink(); ?>"> <img src="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_18'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_18'); ?>" alt="" /></a></figure>
-                           <div class="post-category text-line mb-3 text-leaf"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
+                           <div class="post-category text-line mb-3 text-primary"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
                            <h2 class="post-title h3"><?php echo get_the_title(); ?></h2>
                         </div>
                         <!-- /.item -->
@@ -91,7 +91,7 @@ $block = new CW_Settings(
                      <?php } elseif ($row_num == 2) { ?>
                         <div class="item col-md-6">
                            <figure class="lift <?php echo get_theme_mod('codeweber_image'); ?> mb-6"><a href="<?php echo the_permalink(); ?>"> <img src="<?php echo get_the_post_thumbnail_url($post_id, 'testimonial_2'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'testimonial_2'); ?>" alt="" /></a></figure>
-                           <div class="post-category text-line mb-3 text-leaf"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
+                           <div class="post-category text-line mb-3 text-primary"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
                            <h2 class="post-title h3"><?php echo get_the_title(); ?></h2>
                         </div>
                         <!-- /.item -->
