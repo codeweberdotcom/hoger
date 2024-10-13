@@ -42,7 +42,7 @@ $block = new CW_Settings(
 
 
 <section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo $block->section_class; ?> <?php echo esc_html($args['block_class']); ?>" <?php echo $block->background_data; ?>>
-  <div class="container py-14 py-md-16">
+  <div class="container pt-14 pb-7 pb-md-7 pt-md-16 ">
     <div class="row gx-md-5 gy-5 mt-n18 mt-md-n21">
       <?php echo $block->features; ?>
     </div>
