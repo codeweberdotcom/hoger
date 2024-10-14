@@ -189,7 +189,7 @@ $block = new CW_Settings(
             </div>
             <!--/.row -->
          </div>
-         <!-- /column -->
+         <!-- /column -->ё
       </div>
       <!-- /.row -->
    </div>
