@@ -52,7 +52,11 @@ $block = new CW_Settings(
                         </figure>
                         <div class="project-details d-flex justify-content-center flex-column">
                            <div class="post-header">
-                              <h4 class="post-title h3"><a href="<?php echo get_permalink($post_ids); ?>" class="link-dark"><?php echo get_the_title($post_ids); ?></a></h4>
+
+
+                              <h2 class="post-title h3 fs-18 link-dark woocommerce-loop-product__title"><?php echo get_the_title($post_ids); ?></h2>
+
+
                            </div>
                            <!-- /.post-header -->
                         </div>
