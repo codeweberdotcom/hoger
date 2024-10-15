@@ -43,7 +43,7 @@ global $codeweber;
                                  </div>
                               <?php
                               } ?>
-                              <h2 class="h3 post-title mb-3"> <?php the_title(); ?></h2>
+                              <h2 class="display-4 text-primary post-title mb-3"> <?php the_title(); ?></h2>
 
 
                               <a href="<?php the_permalink(); ?>" class="btn btn-expand btn-primary rounded-pill">
