@@ -1,6 +1,5 @@
 <?php
 global $codeweber;
-
 ?>
 
 <section class="wrapper bg-light<?php echo $codeweber['page_settings']['angle_class']; ?>">
@@ -31,7 +30,7 @@ global $codeweber;
                   }
                ?>
                   <div class="col-lg-6 mb-10">
-                     <div class="<?php echo $card_body_class; ?> h-100">
+                     <a href="<?php the_permalink(); ?>" class="<?php echo $card_body_class; ?> h-100">
                         <div class="<?php echo $row_class; ?>">
                            <div class="<?php echo $col_class_1; ?>">
                               <?php $category_service = wp_get_post_terms(get_the_ID(), 'service_category'); ?>
@@ -43,13 +42,8 @@ global $codeweber;
                                  </div>
                               <?php
                               } ?>
-                              <h2 class="display-4 text-primary post-title mb-3"> <?php the_title(); ?></h2>
+                              <h2 class="display-5 text-primary post-title mb-3"> <?php the_title(); ?></h2>
 
-
-                              <a href="<?php the_permalink(); ?>" class="btn btn-expand btn-primary rounded-pill">
-                                 <i class="uil uil-arrow-right"></i>
-                                 <span><?php esc_html_e('Go to service', 'codeweber') ?></span>
-                              </a>
                            </div>
                            <!-- /column -->
                            <div class="<?php echo $col_class_2; ?>">
@@ -58,7 +52,7 @@ global $codeweber;
                            <!-- /column -->
                         </div>
                         <!-- /.row -->
-                     </div>
+                     </a>
                      <!--/.card-body -->
                   </div>
                   <!--/.card -->
