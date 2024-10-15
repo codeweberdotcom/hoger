@@ -39,24 +39,16 @@ $block = new CW_Settings(
                <div class="swiper-wrapper">
                   <?php
                   foreach ($products as $post_ids) { ?>
-                     <div class="swiper-slide">
-                        <figure class="rounded mb-6">
+                     <div class="swiper-slide quick-view-button" data-product-id="<?php echo $post_ids; ?>" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                        <figure class="rounded mb-6 ">
                            <?php
                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post_ids), 'team-1');
                            ?>
-                           <?php
-                           $image_big = wp_get_attachment_image_src(get_post_thumbnail_id($post_ids), 'sandbox_hero_18');
-                           ?>
                            <img src="<?php echo $image[0]; ?>" srcset="<?php echo $image[0]; ?>" alt="" />
-                           <a class="item-link" href="<?php echo $image_big[0]; ?>" data-glightbox="title: <?php echo get_the_title($post_ids); ?>;" data-gallery="projects-group"><i class="uil uil-focus-add"></i></a>
                         </figure>
                         <div class="project-details d-flex justify-content-center flex-column">
                            <div class="post-header">
-
-
                               <h2 class="post-title h3 fs-18 link-dark woocommerce-loop-product__title"><?php echo get_the_title($post_ids); ?></h2>
-
-
                            </div>
                            <!-- /.post-header -->
                         </div>
