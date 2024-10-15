@@ -14,7 +14,7 @@ class ImageCustomizable
    public $imagelightbox = 'false';
 
    public $imageeffectcursor = 'primary';
-   public $titleclass = 'from-top mb-1';
+   public $titleclass = 'from-top mb-1 text-uppercase';
    public $descriptionclass = 'from-bottom';
    public $figureclass = '';
    public $overlayclass = '';
@@ -55,7 +55,7 @@ class ImageCustomizable
                $this->titleclass = 'from-top mb-0';
                $this->figureclass = '';
             } elseif (get_sub_field('cursor_effect') == 'overlay overlay-2') {
-               $this->titleclass = 'from-top mb-1';
+               $this->titleclass = 'from-top mb-1 text-uppercase';
                $this->descriptionclass = 'from-bottom';
                $this->figureclass = '';
             } elseif (get_sub_field('cursor_effect') == 'overlay overlay-3') {

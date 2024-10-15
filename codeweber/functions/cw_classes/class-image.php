@@ -131,7 +131,7 @@ class CW_Image
                   if (get_sub_field('cw_caption_image') && get_sub_field('cw_cursor_effect') == 'overlay overlay-1') {
                      $figcaption .= '<h5 class="from-top mb-0">' . get_sub_field('cw_caption_image') . '</h5>';
                   } elseif (get_sub_field('cw_caption_image') && get_sub_field('cw_cursor_effect') == 'overlay overlay-2') {
-                     $figcaption .= '<h5 class="from-top mb-1">' . get_sub_field('cw_caption_image') . '</h5>';
+                     $figcaption .= '<h5 class="from-top mb-1 text-uppercase">' . get_sub_field('cw_caption_image') . '</h5>';
                   } elseif (get_sub_field('cw_caption_image') && get_sub_field('cw_cursor_effect') == 'overlay overlay-3') {
                      $figcaption .= '<h5 class="from-left mb-1">' . get_sub_field('cw_caption_image') . '</h5>';
                   }
