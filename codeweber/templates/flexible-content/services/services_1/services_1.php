@@ -73,7 +73,7 @@ $block = new CW_Settings(
                            <?php endif; ?>
                         </figure>
                         <div class="card-body px-6 py-5 d-flex flex-row justify-content-between align-items-center">
-                           <h3 class="mb-1 h4"><?php the_title(); ?></h3>
+                           <h3 class="mb-1 display-6 fs-20 text-dark"><?php the_title(); ?></h3>
                         </div>
                         <!--/.card-body -->
                      </a>
