@@ -66,29 +66,29 @@ $block = new CW_Settings(
                   $querys->the_post();
                   $post_id =  get_the_id();
             ?>
-                  <div class="project item col-md-6 col-xl-4 ">
+                  <a href="<?php echo the_permalink(); ?>" class="project item col-md-6 col-xl-4 lift">
                      <figure class="<?php echo get_theme_mod('codeweber_image'); ?> mb-6"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" alt="" /></figure>
                      <div class="project-details d-flex justify-content-center flex-column">
                         <div class="post-header">
-                           <h2 class="post-title h3 fs-22"><a href="<?php echo the_permalink(); ?>" class="link-dark"><?php echo get_the_title(); ?></a></h2>
+                           <h2 class="post-title h3 fs-22"><?php echo get_the_title(); ?></h2>
                            <div class="post-category text-ash"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
                         </div>
                         <!-- /.post-header -->
                      </div>
                      <!-- /.project-details -->
-                  </div>
-                  <!-- /.item -->
-            <?php
+               </a>
+         <!-- /.item -->
+   <?php
                }
             }
-            ?>
-            <?php
-            wp_reset_postdata();
-            ?>
-         </div>
-         <!-- /.row -->
+   ?>
+   <?php
+   wp_reset_postdata();
+   ?>
       </div>
-      <!-- /.grid -->
+      <!-- /.row -->
+   </div>
+   <!-- /.grid -->
    </div>
    <!-- /.container -->
    <?php if ($block->divider_wave) {
