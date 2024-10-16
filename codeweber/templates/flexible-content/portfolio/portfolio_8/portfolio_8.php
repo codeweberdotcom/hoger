@@ -70,25 +70,25 @@ $block = new CW_Settings(
                      <figure class="<?php echo get_theme_mod('codeweber_image'); ?> mb-6"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" alt="" /></figure>
                      <div class="project-details d-flex justify-content-center flex-column">
                         <div class="post-header">
-                           <h2 class="post-title h3 fs-22"><?php echo get_the_title(); ?></h2>
+                           <h2 class="post-title display-6 text-primary fs-22"><?php echo get_the_title(); ?></h2>
                            <div class="post-category text-ash"><?php echo strip_tags(get_the_term_list($post_id, 'projects_category', NULL, ',', '')); ?></div>
                         </div>
                         <!-- /.post-header -->
                      </div>
                      <!-- /.project-details -->
-               </a>
-         <!-- /.item -->
-   <?php
+                  </a>
+                  <!-- /.item -->
+            <?php
                }
             }
-   ?>
-   <?php
-   wp_reset_postdata();
-   ?>
+            ?>
+            <?php
+            wp_reset_postdata();
+            ?>
+         </div>
+         <!-- /.row -->
       </div>
-      <!-- /.row -->
-   </div>
-   <!-- /.grid -->
+      <!-- /.grid -->
    </div>
    <!-- /.container -->
    <?php if ($block->divider_wave) {
