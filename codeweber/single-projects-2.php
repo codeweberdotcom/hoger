@@ -150,7 +150,8 @@ endif; ?>
                            <?php $image = get_sub_field('image'); ?>
                            <?php if ($image) : ?>
                               <div class="swiper-slide">
-                                 <figure class="hover-scale rounded cursor-dark"><a href="<?php echo esc_url($image['sizes']['brk_big']); ?>" data-glightbox data-gallery="project-1"><img src="<?php echo esc_url($image['sizes']['project_1_1']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" /></a></figure>
+
+                                 <figure class="hover-scale rounded cursor-dark"><a href="<?php echo esc_url($image['url']); ?>" data-glightbox data-gallery="project-1"><img src="<?php echo esc_url($image['sizes']['project_1_1']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" /></a></figure>
                               </div>
                               <!--/.swiper-slide -->
                            <?php endif; ?>
