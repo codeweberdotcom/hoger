@@ -67,7 +67,7 @@ $block = new CW_Settings(
                   $post_id =  get_the_id();
             ?>
                   <div class="project item col-md-6 col-xl-4 ">
-                     <figure class="<?php echo get_theme_mod('codeweber_image'); ?> mb-6"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" alt="" /><a class="item-link" href="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_6'); ?>" data-glightbox data-gallery="projects-group"><i class="uil uil-focus-add"></i></a></figure>
+                     <figure class="<?php echo get_theme_mod('codeweber_image'); ?> mb-6"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_hero_11'); ?>" alt="" /></figure>
                      <div class="project-details d-flex justify-content-center flex-column">
                         <div class="post-header">
                            <h2 class="post-title h3 fs-22"><a href="<?php echo the_permalink(); ?>" class="link-dark"><?php echo get_the_title(); ?></a></h2>
