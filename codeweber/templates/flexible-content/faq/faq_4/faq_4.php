@@ -14,6 +14,12 @@ $block = new CW_Settings(
       'subtitle' => 'If you don\'t see an answer to your question, you can send us an email from our contact form.',
       'patternSubtitle' => '<p class="lead fs-lg mb-0 %2$s">%1$s</p>',
 
+      'paragraph' => 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare.',
+      'patternParagraph' => '<p class="lead mb-6 %2$s">%1$s</p>',
+
+      'buttons' => '<a href="#" class="btn btn-primary rounded-pill">All FAQ</a>',
+      'buttons_pattern' => '<div class="d-flex justify-content-center justify-content-lg-start flex-wrap" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">%s</div>',
+
       'background_class_default' => 'wrapper bg-light',
 
       'divider' => true,
@@ -98,6 +104,10 @@ $block = new CW_Settings(
                   <!--/title -->
                   <?php echo $block->subtitle_second; ?>
                   <!--/subtitle -->
+                  <?php echo $block->paragraph; ?>
+                  <!--/paragraph -->
+                  <?php echo $block->buttons; ?>
+                  <!--/buttons group -->
                </div>
                <!--/column -->
                <div class="col-lg-6 <?php echo $block->column_class_2; ?>">
