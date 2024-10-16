@@ -41,7 +41,7 @@
                   }
                 }
               } ?>
-              <div class="swiper-slide h-100 bg-overlay bg-overlay-400 bg-dark" style="background-image:url(<?php echo $image_link; ?>">
+              <div class="swiper-slide h-100 bg-overlay  bg-dark" style="background-image:url(<?php echo $image_link; ?>">
                 <div class="container h-100">
                   <div class="row h-100">
                     <div class="<?php echo $position_class; ?>">
