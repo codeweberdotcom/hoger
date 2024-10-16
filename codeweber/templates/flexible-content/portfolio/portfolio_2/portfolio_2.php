@@ -48,7 +48,7 @@ $block = new CW_Settings(
 <section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo $block->section_class; ?> <?php echo esc_html($args['block_class']); ?>" <?php echo $block->background_data; ?>>
    <div class="container py-14 py-md-16">
       <div class="row">
-         <div class="col-lg-9 col-xl-8 col-xxl-7 mx-auto text-center">
+         <div class="">
             <?php echo $block->subtitle_first; ?>
             <!--/subtitle -->
             <?php echo $block->title; ?>

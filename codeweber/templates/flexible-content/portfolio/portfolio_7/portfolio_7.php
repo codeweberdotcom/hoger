@@ -51,7 +51,7 @@ $block = new CW_Settings(
    <div class="overflow-hidden">
       <div class="container py-14 py-md-16">
          <div class="row">
-            <div class="col-lg-10 col-xl-9 col-xxl-8 mx-auto text-center">
+            <div class="">
                <?php echo $block->subtitle_first; ?>
                <?php echo $block->title; ?>
                <?php echo $block->subtitle_second; ?>

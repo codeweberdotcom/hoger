@@ -37,7 +37,7 @@ $block = new CW_Settings(
       'subtitle' => 'Our Projects',
       'patternSubtitle' => '<h2 class="fs-16 text-uppercase text-muted text-center mb-3 %2$s">%1$s</h2>',
       'title' => 'Check out some of our awesome projects with creative ideas and great design.',
-      'patternTitle' => '<h3 class="display-3 text-center px-lg-5 px-xl-10 px-xxl-16 mb-0 %2$s">%1$s</h3>',
+      'patternTitle' => '<h3 class="display-3 mb-0 %2$s">%1$s</h3>',
       'background_class_default' => 'wrapper bg-light',
       'divider' => true,
    )
