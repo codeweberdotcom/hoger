@@ -85,49 +85,50 @@ $block = new CW_Settings(
 foreach ($array_terms as $term) {
    get_products_by_term_id($term);
 }
-
-function get_products_by_term_id($term)
-{
-   $args = array(
-      'post_type' => 'product',
-      'posts_per_page' => -1, // Количество товаров (-1 для всех товаров)
-      'tax_query' => array(
-         array(
-            'taxonomy' => 'product_cat',
-            'field'    => 'term_id',
-            'terms'    => $term->term_id, // ID категории
+if (!function_exists('get_products_by_term_id')) {
+   function get_products_by_term_id($term)
+   {
+      $args = array(
+         'post_type' => 'product',
+         'posts_per_page' => -1, // Количество товаров (-1 для всех товаров)
+         'tax_query' => array(
+            array(
+               'taxonomy' => 'product_cat',
+               'field'    => 'term_id',
+               'terms'    => $term->term_id, // ID категории
+            ),
          ),
-      ),
-   );
+      );
 ?>
 
-   <div class="offcanvas offcanvas-end bg-light" id="offcanvas-<?php echo $term->term_id; ?>" aria-modal="true" data-bs-scroll="true" role="dialog">
-      <div class="offcanvas-header">
-         <div class="display-6 text-primary"> <?php echo esc_html($term->name); ?></div>
-         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body pb-6">
-         <div class="row row-cols-1 row-cols-md-1 gx-0 gx-md-8 gx-xl-12 gy-5">
-            <?php
-            // Получаем товары
-            $products = new WP_Query($args);
-            if ($products->have_posts()) :
-               while ($products->have_posts()) : $products->the_post();
-                  // Получаем ссылку на основное изображение товара
-                  $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                  echo '<a href="' . $thumbnail_url . '" data-glightbox="description: .caption1" " data-gallery="' . $term->term_id . '" class="item-link col project item text-uppercase">';
-                  echo '<figure class="rounded">';
-                  echo '<img src="' . $thumbnail_url . '"><div class="item-link"><i class="uil  uil-plus"></i></div>';
-                  echo '</figure>';
-                  echo '</a><div class="glightbox-desc caption1"><p class="display-6 fs-18">' . get_the_title() . '</p></div>';
-               endwhile;
-               wp_reset_postdata(); // Сбрасываем данные запроса
-            else :
-               echo '<p>Товары не найдены.</p>';
-            endif;
-            ?>
+      <div class="offcanvas offcanvas-end bg-light" id="offcanvas-<?php echo $term->term_id; ?>" aria-modal="true" data-bs-scroll="true" role="dialog">
+         <div class="offcanvas-header">
+            <div class="display-6 text-primary"> <?php echo esc_html($term->name); ?></div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+         </div>
+         <div class="offcanvas-body pb-6">
+            <div class="row row-cols-1 row-cols-md-1 gx-0 gx-md-8 gx-xl-12 gy-5">
+               <?php
+               // Получаем товары
+               $products = new WP_Query($args);
+               if ($products->have_posts()) :
+                  while ($products->have_posts()) : $products->the_post();
+                     // Получаем ссылку на основное изображение товара
+                     $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                     echo '<a href="' . $thumbnail_url . '" data-glightbox="description: .caption1" " data-gallery="' . $term->term_id . '" class="item-link col project item text-uppercase">';
+                     echo '<figure class="rounded">';
+                     echo '<img src="' . $thumbnail_url . '"><div class="item-link"><i class="uil  uil-plus"></i></div>';
+                     echo '</figure>';
+                     echo '</a><div class="glightbox-desc caption1"><p class="display-6 fs-18">' . get_the_title() . '</p></div>';
+                  endwhile;
+                  wp_reset_postdata(); // Сбрасываем данные запроса
+               else :
+                  echo '<p>Товары не найдены.</p>';
+               endif;
+               ?>
+            </div>
          </div>
       </div>
-   </div>
 <?php
+   }
 }
