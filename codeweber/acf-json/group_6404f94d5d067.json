@@ -6,6 +6,7 @@
             "key": "field_6404f94d67e7c",
             "label": "Woocommerce",
             "name": "woocommerce",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                             "key": "field_6404f94d6bc8f",
                             "label": "Main settings",
                             "name": "",
+                            "aria-label": "",
                             "type": "accordion",
                             "instructions": "",
                             "required": 0,
@@ -43,6 +45,7 @@
                             "key": "field_6404f94d6f7aa",
                             "label": "Заголовок",
                             "name": "cw_title",
+                            "aria-label": "",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -64,6 +67,7 @@
                             "key": "field_640513edcf18f",
                             "label": "Subtitle",
                             "name": "cw_subtitle",
+                            "aria-label": "",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -85,6 +89,7 @@
                             "key": "field_6405103266601",
                             "label": "Products",
                             "name": "",
+                            "aria-label": "",
                             "type": "accordion",
                             "instructions": "",
                             "required": 0,
@@ -102,6 +107,7 @@
                             "key": "field_64050ffa66600",
                             "label": "Products",
                             "name": "products",
+                            "aria-label": "",
                             "type": "relationship",
                             "instructions": "",
                             "required": 0,
@@ -122,12 +128,14 @@
                             "elements": "",
                             "min": "",
                             "max": "",
-                            "return_format": "id"
+                            "return_format": "id",
+                            "bidirectional_target": []
                         },
                         {
                             "key": "field_6404f94d85bd7",
                             "label": "Background",
                             "name": "",
+                            "aria-label": "",
                             "type": "accordion",
                             "instructions": "",
                             "required": 0,
@@ -145,6 +153,163 @@
                             "key": "field_6404f94d89618",
                             "label": "Background",
                             "name": "",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6398d19d56ee1"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67113870d9c14": {
+                    "key": "layout_67113870d9c14",
+                    "name": "woocommerce_2",
+                    "label": "woocommerce 2",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67113870d9c1c",
+                            "label": "Main settings",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "accordion",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "open": 0,
+                            "multi_expand": 0,
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_67113870d9c1d",
+                            "label": "Заголовок",
+                            "name": "cw_title",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_6383ec1d68ff4"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_67113870d9c1e",
+                            "label": "Subtitle",
+                            "name": "cw_subtitle",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_6384afba2c502"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_67113870d9c1f",
+                            "label": "Categories",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "accordion",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "open": 0,
+                            "multi_expand": 0,
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_671138cee9fd6",
+                            "label": "Category",
+                            "name": "category",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "product_cat",
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "id",
+                            "field_type": "multi_select",
+                            "allow_null": 1,
+                            "allow_in_bindings": 0,
+                            "bidirectional": 0,
+                            "multiple": 0,
+                            "bidirectional_target": []
+                        },
+                        {
+                            "key": "field_67113870d9c21",
+                            "label": "Background",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "accordion",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "open": 0,
+                            "multi_expand": 0,
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_67113870d9c22",
+                            "label": "Background",
+                            "name": "",
+                            "aria-label": "",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -167,9 +332,9 @@
                     "max": ""
                 }
             },
-            "button_label": "Добавить",
             "min": "",
-            "max": ""
+            "max": "",
+            "button_label": "Добавить"
         }
     ],
     "location": [
@@ -190,5 +355,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700514511
+    "modified": 1729183286
 }
