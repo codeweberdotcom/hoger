@@ -82,9 +82,7 @@ $block = new CW_Settings(
 <!-- /section -->
 <?php
 
-foreach ($array_terms as $term) {
-   get_products_by_term_id($term);
-}
+
 if (!function_exists('get_products_by_term_id')) {
    function get_products_by_term_id($term)
    {
@@ -131,4 +129,8 @@ if (!function_exists('get_products_by_term_id')) {
       </div>
 <?php
    }
+}
+
+foreach ($array_terms as $term) {
+   get_products_by_term_id($term);
 }
