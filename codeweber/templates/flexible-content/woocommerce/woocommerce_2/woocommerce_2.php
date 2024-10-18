@@ -21,8 +21,8 @@ $block = new CW_Settings(
 
 <section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo $block->section_class; ?> <?php echo esc_html($args['block_class']); ?>" <?php echo $block->background_data; ?>>
    <div class="container py-14 py-md-16">
-      <div class="row">
-         <div class="col-lg-9 col-xl-8 col-xxl-7">
+      <div class="row g-0 p-8 overflow-hidden wrapper rounded my-8 bg-light">
+         <div class="col-lg-9 g-0 col-xl-8 col-xxl-7">
             <?php echo $block->subtitle_first; ?>
             <!--/subtitle -->
             <?php echo $block->title; ?>
@@ -30,53 +30,53 @@ $block = new CW_Settings(
             <?php echo $block->subtitle_second; ?>
             <!--/subtitle -->
          </div>
+
+
+
+         <?php
+         $category = get_sub_field('category'); // Получаем поле категории ACF
+         if ($category) {
+            // Включаем только те категории, которые были выбраны в ACF, и сохраняем их порядок
+            $get_terms_args = array(
+               'taxonomy' => 'product_cat',
+               'hide_empty' => 0,
+               'include' => $category,
+               'orderby' => 'include', // Сортируем в порядке, в котором они идут в массиве $category
+            );
+            $terms = get_terms($get_terms_args);
+            if ($terms) { ?>
+               <div class="row p-0 row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gx-5 gy-5">
+                  <?php
+                  $array_terms = array();
+                  foreach ($terms as $term) {
+                     // Получаем изображение категории
+                     $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+                     $image_url = wp_get_attachment_url($thumbnail_id);
+                     if (!$image_url) {
+                        $image_url = wc_placeholder_img_src();
+                     }; ?>
+                     <a href="#" class="col lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo $term->term_id; ?>">
+                        <figure class="rounded mb-6">
+                           <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($term->name); ?>">
+                        </figure>
+                        <div class="post-header">
+                           <h2 class="post-title display-6 fs-18 text-primary woocommerce-loop-product__title">
+                              <?php echo esc_html($term->name); ?>
+                           </h2>
+                        </div>
+                        <?php $array_terms[] = $term; ?>
+                     </a>
+                  <?php
+                  };
+                  ?>
+               </div>
       </div>
-
-
-      <?php
-      $category = get_sub_field('category'); // Получаем поле категории ACF
-      if ($category) {
-         // Включаем только те категории, которые были выбраны в ACF, и сохраняем их порядок
-         $get_terms_args = array(
-            'taxonomy' => 'product_cat',
-            'hide_empty' => 0,
-            'include' => $category,
-            'orderby' => 'include', // Сортируем в порядке, в котором они идут в массиве $category
-         );
-         $terms = get_terms($get_terms_args);
-         if ($terms) { ?>
-            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gx-5 gy-5">
-               <?php
-               $array_terms = array();
-               foreach ($terms as $term) {
-                  // Получаем изображение категории
-                  $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
-                  $image_url = wp_get_attachment_url($thumbnail_id);
-                  if (!$image_url) {
-                     $image_url = wc_placeholder_img_src();
-                  }; ?>
-                  <a href="#" class="col lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo $term->term_id; ?>">
-                     <figure class="rounded mb-6">
-                        <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($term->name); ?>">
-                     </figure>
-                     <div class="post-header">
-                        <h2 class="post-title display-6 fs-18 text-primary woocommerce-loop-product__title">
-                           <?php echo esc_html($term->name); ?>
-                        </h2>
-                     </div>
-                     <?php $array_terms[] = $term; ?>
-                  </a>
-               <?php
-               };
-               ?>
-            </div>
    </div>
 <?php
+            };
          };
-      };
-      do_action('button_after_flexible_content_woo_1_'); ?>
-</div>
-<!-- /.container -->
+         do_action('button_after_flexible_content_woo_1_'); ?>
+
 
 </section>
 <!-- /section -->
