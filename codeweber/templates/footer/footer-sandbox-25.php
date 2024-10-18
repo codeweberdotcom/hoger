@@ -2,7 +2,7 @@
      <div class="container py-13 py-md-15">
         <div class="row gy-6 gy-lg-0">
            <div class="col-md-4 col-lg-3">
-              <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Popular Posts', 'codeweber'); ?></h4>
+              <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Popular Posts', 'codeweber'); ?></h4>
               <?php
                sandbox_recent_post();
                ?>
@@ -11,7 +11,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-3">
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Tags', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Tags', 'codeweber'); ?></h4>
                  <?php
                   $tags = get_tags([
                      'number'       => 4,
@@ -27,7 +27,7 @@
               </div>
               <!-- /.widget -->
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Categories', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Categories', 'codeweber'); ?></h4>
                  <ul class="unordered-list text-reset bullet-white">
                     <?php
                      $categories = get_categories([
@@ -46,7 +46,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-3">
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Get in Touch', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Get in Touch', 'codeweber'); ?></h4>
                  <address class="pe-xl-15 pe-xxl-17"><?php echo brk_adress(); ?></address>
                  <a href="mailto:<?php echo brk_email(); ?>"><?php echo brk_email(); ?></a><br />
                  <?php echo brk_phone_one(NULL); ?><br />
@@ -54,7 +54,7 @@
               </div>
               <!-- /.widget -->
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Elsewhere', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Elsewhere', 'codeweber'); ?></h4>
                  <nav class="nav social social-white">
                     <?php if (class_exists('ACF')) {
                         get_template_part('templates/components/socialicons', '');
@@ -67,12 +67,12 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-3">
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Learn More', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Learn More', 'codeweber'); ?></h4>
                  <?php get_template_part('templates/components/footer-menu-light', ''); ?>
               </div>
               <!-- /.widget -->
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Need Help?', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Need Help?', 'codeweber'); ?></h4>
                  <?php get_template_part('templates/components/footer-menu-light-1', ''); ?>
               </div>
               <!-- /.widget -->

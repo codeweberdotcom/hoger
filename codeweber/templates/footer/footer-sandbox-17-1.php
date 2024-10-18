@@ -11,7 +11,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-2 offset-lg-2">
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Services', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Services', 'codeweber'); ?></h4>
                  <?php get_template_part('templates/components/footer-menu-light', ''); ?>
               </div>
               <!-- /.widget -->
@@ -19,7 +19,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-2">
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Phone', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Phone', 'codeweber'); ?></h4>
                  <?php echo brk_phone_one(NULL); ?><br />
                  <?php echo brk_phone_two(NULL); ?><br />
               </div>
@@ -28,7 +28,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-2">
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Address', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Address', 'codeweber'); ?></h4>
                  <address><?php echo brk_adress(); ?></address>
               </div>
               <!-- /.widget -->
