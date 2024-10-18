@@ -55,7 +55,7 @@ $block = new CW_Settings(
                   if (!$image_url) {
                      $image_url = wc_placeholder_img_src();
                   }; ?>
-                  <a href="#" class="col" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo $term->term_id; ?>">
+                  <a href="#" class="col lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo $term->term_id; ?>">
                      <figure class="rounded mb-6">
                         <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($term->name); ?>">
                      </figure>
