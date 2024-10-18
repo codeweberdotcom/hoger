@@ -78,6 +78,10 @@ $block = new CW_Settings(
       do_action('button_after_flexible_content_woo_1_'); ?>
 </div>
 <!-- /.container -->
+<?php if ($block->divider_wave) {
+   echo $block->divider_wave;
+} ?>
+<!-- /divider -->
 </section>
 <!-- /section -->
 <?php

@@ -326,6 +326,28 @@
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
+                        },
+                        {
+                            "key": "field_6711f93060786",
+                            "label": "Divider",
+                            "name": "cw_divider",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_63a18f728079f"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         }
                     ],
                     "min": "",
@@ -355,5 +377,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729183286
+    "modified": 1729231387
 }
