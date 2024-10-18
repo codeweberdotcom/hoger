@@ -46,7 +46,7 @@ $block = new CW_Settings(
          );
          $terms = get_terms($get_terms_args);
          if ($terms) { ?>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gx-5 gy-5">
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gx-5 gy-5">
                <?php
                $array_terms = array();
                foreach ($terms as $term) {
@@ -105,7 +105,7 @@ if (!function_exists('get_products_by_term_id')) {
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
          </div>
          <div class="offcanvas-body pb-6">
-            <div class="row row-cols-2 row-cols-md-1 gx-0 gx-md-8 gx-xl-12 gy-5">
+            <div class="row row-cols-1 row-cols-md-1 gx-0 gx-md-8 gx-xl-12 gy-5">
                <?php
                // Получаем товары
                $products = new WP_Query($args);
