@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Woocommerce 1
+ * Woocommerce 2
  */
 
 $block = new CW_Settings(
@@ -13,7 +13,6 @@ $block = new CW_Settings(
       'patternTitle' => '<h3 class="display-4 mb-9 %2$s">%1$s</h3>',
 
       'background_class_default' => 'wrapper bg-light',
-      'divider' => true,
 
       'shapes' => array('<div class="shape bg-line leaf rounded-circle rellax w-17 h-17" data-rellax-speed="1" style="top: -2rem; right: -0.6rem;"></div>', '<div class="shape bg-pale-violet rounded-circle rellax w-17 h-17" data-rellax-speed="1" style="bottom: -2rem; left: -0.4rem;"></div>'),
    )
@@ -78,10 +77,7 @@ $block = new CW_Settings(
       do_action('button_after_flexible_content_woo_1_'); ?>
 </div>
 <!-- /.container -->
-<?php if ($block->divider_wave) {
-   echo $block->divider_wave;
-} ?>
-<!-- /divider -->
+
 </section>
 <!-- /section -->
 <?php
