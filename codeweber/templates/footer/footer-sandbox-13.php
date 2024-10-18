@@ -22,7 +22,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-3">
               <div class="widget">
-                 <h4 class="widget-title text-white mb-3"><?php esc_html_e('Get in Touch ', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Get in Touch ', 'codeweber'); ?></h4>
                  <address class="pe-xl-15 pe-xxl-17"><?php echo brk_adress(); ?></address>
                  <a href="mailto:<?php echo brk_email(); ?>"><?php echo brk_email(); ?></a><br />
                  <?php echo brk_phone_one(NULL); ?><br />
@@ -33,7 +33,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-3">
               <div class="widget">
-                 <h4 class="widget-title text-white mb-3"><?php esc_html_e('Learn More', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Learn More', 'codeweber'); ?></h4>
                  <?php get_template_part('templates/components/footer-menu', ''); ?>
               </div>
               <!-- /.widget -->
@@ -41,7 +41,7 @@
            <!-- /column -->
            <div class="col-md-12 col-lg-3">
               <div class="widget">
-                 <h4 class="widget-title text-white mb-3"><?php esc_html_e('Our Newsletter', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-20  text-white mb-3"><?php esc_html_e('Our Newsletter', 'codeweber'); ?></h4>
                  <p class="mb-5"><?php esc_html_e('Subscribe to our newsletter to get our news & deals delivered to you.', 'codeweber'); ?></p>
                  <div class="newsletter-wrapper">
                     <!-- Begin Mailchimp Signup Form -->

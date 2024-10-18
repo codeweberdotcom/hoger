@@ -12,7 +12,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-2 offset-lg-2">
               <div class="widget">
-                 <h4 class="widget-title  mb-3"><?php esc_html_e('Need Help?', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-20   mb-3"><?php esc_html_e('Need Help?', 'codeweber'); ?></h4>
                  <?php get_template_part('templates/components/footer-menu-light', ''); ?>
               </div>
               <!-- /.widget -->
@@ -20,7 +20,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-2">
               <div class="widget">
-                 <h4 class="widget-title  mb-3"><?php esc_html_e('Learn More', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-20   mb-3"><?php esc_html_e('Learn More', 'codeweber'); ?></h4>
                  <?php get_template_part('templates/components/footer-menu-light', ''); ?>
               </div>
               <!-- /.widget -->
@@ -28,7 +28,7 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-2">
               <div class="widget">
-                 <h4 class="widget-title  mb-3"><?php esc_html_e('Get in Touch ', 'codeweber'); ?></h4>
+                 <h4 class="widget-title display-6 fs-20   mb-3"><?php esc_html_e('Get in Touch ', 'codeweber'); ?></h4>
                  <address><?php echo brk_adress(); ?></address>
                  <a href="mailto:<?php echo brk_email(); ?>" class="link-body"><?php echo brk_email(); ?></a><br />
                  <?php echo brk_phone_one(NULL); ?><br />

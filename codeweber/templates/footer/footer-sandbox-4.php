@@ -27,7 +27,7 @@
               <div class="row mb-3">
                  <div class="col-md-4">
                     <div class="widget">
-                       <h4 class="widget-title"><?php esc_html_e('Address', 'codeweber'); ?></h4>
+                       <h4 class="widget-title display-6 fs-20 "><?php esc_html_e('Address', 'codeweber'); ?></h4>
                        <address><?php echo brk_adress(); ?></address>
                     </div>
                     <!-- /.widget -->
@@ -35,7 +35,7 @@
                  <!--/column -->
                  <div class="col-md-4">
                     <div class="widget">
-                       <h4 class="widget-title"><?php esc_html_e('Phone', 'codeweber'); ?></h4>
+                       <h4 class="widget-title display-6 fs-20 "><?php esc_html_e('Phone', 'codeweber'); ?></h4>
                        <p><?php echo brk_phone_one(NULL); ?><br />
                           <?php echo brk_phone_two(NULL); ?><br /></p>
                     </div>
@@ -44,7 +44,7 @@
                  <!--/column -->
                  <div class="col-md-4">
                     <div class="widget">
-                       <h4 class="widget-title"><?php esc_html_e('E-mail', 'codeweber'); ?></h4>
+                       <h4 class="widget-title display-6 fs-20 "><?php esc_html_e('E-mail', 'codeweber'); ?></h4>
                        <p><a href="mailto:<?php echo brk_email(); ?>" class="link-body alert-link hover"><?php echo brk_email(); ?></a></p>
                     </div>
                     <!-- /.widget -->
