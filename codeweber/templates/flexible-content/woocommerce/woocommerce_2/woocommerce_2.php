@@ -10,7 +10,7 @@ $block = new CW_Settings(
       'patternSubtitle' => '<h2 class="fs-16 text-uppercase text-muted mb-3 %2$s">%1$s</h2>',
 
       'title' => 'Check out some of our awesome projects with creative ideas and great design.',
-      'patternTitle' => '<h3 class="display-4 mb-0 %2$s">%1$s</h3>',
+      'patternTitle' => '<h3 class="display-4 mb-10 %2$s">%1$s</h3>',
 
       'background_class_default' => 'wrapper bg-light',
 
@@ -43,37 +43,40 @@ $block = new CW_Settings(
             );
             $terms = get_terms($get_terms_args);
             if ($terms) { ?>
-               <div class="row p-0 row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gx-5 gy-5">
-                  <?php
-                  $array_terms = array();
-                  foreach ($terms as $term) {
-                     // Получаем изображение категории
-                     $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+               <div class="grid grid-view projects-masonry shop">
+                  <div class="row gx-md-8 gy-10 gy-md-13 isotope">
+                     <?php
+                     $array_terms = array();
+                     foreach ($terms as $term) {
+                        // Получаем изображение категории
+                        $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
 
-                     // Если изображение существует, получаем его с необходимым размером
-                     if ($thumbnail_id) {
-                        $image_html = wp_get_attachment_image($thumbnail_id, 'sandbox_about_4', false, array('class' => 'img-fluid'));
-                     } else {
-                        // Если изображения нет, используем плейсхолдер
-                        $image_html = '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr($term->name) . '" class="img-fluid">';
-                     }
-                  ?>
+                        // Если изображение существует, получаем его с необходимым размером
+                        if ($thumbnail_id) {
+                           $image_html = wp_get_attachment_image($thumbnail_id, 'sandbox_about_4', false, array('class' => 'img-fluid'));
+                        } else {
+                           // Если изображения нет, используем плейсхолдер
+                           $image_html = '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr($term->name) . '" class="img-fluid">';
+                        }
+                     ?>
 
-                     <a href="#" class="col lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo esc_attr($term->term_id); ?>">
-                        <figure class="rounded mb-6">
-                           <?php echo $image_html; ?>
-                        </figure>
-                        <div class="post-header">
-                           <h2 class="post-title display-6 fs-18 text-primary woocommerce-loop-product__title">
-                              <?php echo esc_html($term->name); ?>
-                           </h2>
-                        </div>
-                        <?php $array_terms[] = $term; ?>
-                     </a>
-                  <?php
-                  };
-                  ?>
+                        <a href="#" class="project item col-2 col-md-3 col-xl-3 lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo esc_attr($term->term_id); ?>">
+                           <figure class="rounded mb-6">
+                              <?php echo $image_html; ?>
+                           </figure>
+                           <div class="post-header">
+                              <h2 class="post-title display-6 fs-18 text-primary woocommerce-loop-product__title">
+                                 <?php echo esc_html($term->name); ?>
+                              </h2>
+                           </div>
+                           <?php $array_terms[] = $term; ?>
+                        </a>
+                     <?php
+                     };
+                     ?>
+                  </div>
                </div>
+               <?php the_sub_field('shortcode'); ?>
       </div>
    </div>
 <?php
@@ -117,9 +120,13 @@ if (!function_exists('get_products_by_term_id')) {
                      $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                ?>
                      <a href="<?php echo esc_url($thumbnail_url); ?>" data-glightbox="description: .caption1" data-gallery="<?php echo esc_attr($term->term_id); ?>" class="item-link col project item text-uppercase">
-                        <figure class="rounded">
+                        <figure class="rounded overlay overlay-1">
                            <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
-                           <div class="item-link"><i class="uil uil-plus"></i></div>
+                           <span class="bg"></span>
+
+                           <figcaption>
+                              <div class="from-top mb-0 mt-5"><i class="uil uil-plus"></i></div>
+                           </figcaption>
                         </figure>
                      </a>
                      <div class="glightbox-desc caption1">
