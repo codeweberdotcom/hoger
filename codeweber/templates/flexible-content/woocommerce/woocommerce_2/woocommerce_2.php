@@ -10,7 +10,7 @@ $block = new CW_Settings(
       'patternSubtitle' => '<h2 class="fs-16 text-uppercase text-muted mb-3 %2$s">%1$s</h2>',
 
       'title' => 'Check out some of our awesome projects with creative ideas and great design.',
-      'patternTitle' => '<h3 class="display-4 mb-9 %2$s">%1$s</h3>',
+      'patternTitle' => '<h3 class="display-4 mb-0 %2$s">%1$s</h3>',
 
       'background_class_default' => 'wrapper bg-light',
 
@@ -19,7 +19,7 @@ $block = new CW_Settings(
 );
 ?>
 
-<section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo $block->section_class; ?> <?php echo esc_html($args['block_class']); ?>" <?php echo $block->background_data; ?>>
+<section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo esc_attr($block->section_class); ?> <?php echo esc_html($args['block_class']); ?>" <?php echo $block->background_data; ?>>
    <div class="container py-14 py-md-16">
       <div class="row g-0 p-8 overflow-hidden wrapper rounded my-8 bg-light">
          <div class="col-lg-9 g-0 col-xl-8 col-xxl-7">
@@ -30,8 +30,6 @@ $block = new CW_Settings(
             <?php echo $block->subtitle_second; ?>
             <!--/subtitle -->
          </div>
-
-
 
          <?php
          $category = get_sub_field('category'); // Получаем поле категории ACF
@@ -51,13 +49,19 @@ $block = new CW_Settings(
                   foreach ($terms as $term) {
                      // Получаем изображение категории
                      $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
-                     $image_url = wp_get_attachment_url($thumbnail_id);
-                     if (!$image_url) {
-                        $image_url = wc_placeholder_img_src();
-                     }; ?>
-                     <a href="#" class="col lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo $term->term_id; ?>">
+
+                     // Если изображение существует, получаем его с необходимым размером
+                     if ($thumbnail_id) {
+                        $image_html = wp_get_attachment_image($thumbnail_id, 'sandbox_about_4', false, array('class' => 'img-fluid'));
+                     } else {
+                        // Если изображения нет, используем плейсхолдер
+                        $image_html = '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr($term->name) . '" class="img-fluid">';
+                     }
+                  ?>
+
+                     <a href="#" class="col lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo esc_attr($term->term_id); ?>">
                         <figure class="rounded mb-6">
-                           <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($term->name); ?>">
+                           <?php echo $image_html; ?>
                         </figure>
                         <div class="post-header">
                            <h2 class="post-title display-6 fs-18 text-primary woocommerce-loop-product__title">
@@ -73,16 +77,13 @@ $block = new CW_Settings(
       </div>
    </div>
 <?php
-            };
-         };
-         do_action('button_after_flexible_content_woo_1_'); ?>
-
-
+            }
+         }
+         do_action('button_after_flexible_content_woo_1_');
+?>
 </section>
-<!-- /section -->
+
 <?php
-
-
 if (!function_exists('get_products_by_term_id')) {
    function get_products_by_term_id($term)
    {
@@ -97,9 +98,12 @@ if (!function_exists('get_products_by_term_id')) {
             ),
          ),
       );
+
+      // Получаем товары
+      $products = new WP_Query($args);
 ?>
 
-      <div class="offcanvas offcanvas-end bg-light" id="offcanvas-<?php echo $term->term_id; ?>" aria-modal="true" data-bs-scroll="true" role="dialog">
+      <div class="offcanvas offcanvas-end bg-light" id="offcanvas-<?php echo esc_attr($term->term_id); ?>" aria-modal="true" data-bs-scroll="true" role="dialog">
          <div class="offcanvas-header">
             <div class="display-6 text-primary"> <?php echo esc_html($term->name); ?></div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -107,17 +111,21 @@ if (!function_exists('get_products_by_term_id')) {
          <div class="offcanvas-body pb-6">
             <div class="row row-cols-1 row-cols-md-1 gx-0 gx-md-8 gx-xl-12 gy-5">
                <?php
-               // Получаем товары
-               $products = new WP_Query($args);
                if ($products->have_posts()) :
                   while ($products->have_posts()) : $products->the_post();
                      // Получаем ссылку на основное изображение товара
                      $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                     echo '<a href="' . $thumbnail_url . '" data-glightbox="description: .caption1" " data-gallery="' . $term->term_id . '" class="item-link col project item text-uppercase">';
-                     echo '<figure class="rounded">';
-                     echo '<img src="' . $thumbnail_url . '"><div class="item-link"><i class="uil  uil-plus"></i></div>';
-                     echo '</figure>';
-                     echo '</a><div class="glightbox-desc caption1"><p class="display-6 fs-18">' . get_the_title() . '</p></div>';
+               ?>
+                     <a href="<?php echo esc_url($thumbnail_url); ?>" data-glightbox="description: .caption1" data-gallery="<?php echo esc_attr($term->term_id); ?>" class="item-link col project item text-uppercase">
+                        <figure class="rounded">
+                           <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+                           <div class="item-link"><i class="uil uil-plus"></i></div>
+                        </figure>
+                     </a>
+                     <div class="glightbox-desc caption1">
+                        <p class="display-6 fs-18"><?php echo esc_html(get_the_title()); ?></p>
+                     </div>
+               <?php
                   endwhile;
                   wp_reset_postdata(); // Сбрасываем данные запроса
                else :
@@ -131,6 +139,8 @@ if (!function_exists('get_products_by_term_id')) {
    }
 }
 
+// Выводим товары для каждой категории
 foreach ($array_terms as $term) {
    get_products_by_term_id($term);
 }
+?>
