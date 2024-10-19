@@ -20,8 +20,8 @@ $block = new CW_Settings(
 ?>
 
 <section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo esc_attr($block->section_class); ?> <?php echo esc_html($args['block_class']); ?>" <?php echo $block->background_data; ?>>
-   <div class="container py-14 py-md-16">
-      <div class="row g-0 p-8 overflow-hidden wrapper rounded my-8 bg-light">
+   <div class="container ">
+      <div class="row g-0 p-4 p-md-6  overflow-hidden wrapper rounded bg-light shadow-lg">
          <div class="col-lg-9 g-0 col-xl-8 col-xxl-7">
             <?php echo $block->subtitle_first; ?>
             <!--/subtitle -->
@@ -44,7 +44,7 @@ $block = new CW_Settings(
             $terms = get_terms($get_terms_args);
             if ($terms) { ?>
                <div class="grid grid-view projects-masonry shop">
-                  <div class="row gx-md-8 gy-10 gy-md-13 isotope">
+                  <div class="row g-2 g-md-4 gx-md-8 gy-10 gy-md-13 isotope">
                      <?php
                      $array_terms = array();
                      foreach ($terms as $term) {
@@ -60,7 +60,7 @@ $block = new CW_Settings(
                         }
                      ?>
 
-                        <a href="#" class="project item col-2 col-md-3 col-xl-3 lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo esc_attr($term->term_id); ?>">
+                        <a href="#" class="project item col-6 col-md-3 col-xl-3 lift" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-<?php echo esc_attr($term->term_id); ?>">
                            <figure class="rounded mb-6">
                               <?php echo $image_html; ?>
                            </figure>
