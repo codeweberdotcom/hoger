@@ -161,13 +161,21 @@ function brk_adress()
 
 
 	if ($adress_2 && $adress_1 && $adress_3) :
-		$brk_adress = $adress_1 . ' ' . $adress_3 . ' ' . $adress_2;
+		$brk_adress = '<li>' . $adress_1 . ' ' . $adress_3 . ' ' . $adress_2 . '</li>';
 	elseif ($adress_1 && $adress_2) :
-		$brk_adress = $adress_1 . ' ' . $adress_2;
+		$brk_adress = '<li>' . $adress_1 . ' ' . $adress_2 . '</li>';
 	else :
 		$brk_adress = 'Moonshine St. 14/05 Light City, London, United Kingdom';
 	endif;
-	return $brk_adress;
+	if (get_field('address_two', 'option')) {
+		$brk_adress .= '<li>' . get_field('address_two', 'option') . '</li>';
+	}
+
+	if (get_field('address_three', 'option')) {
+		$brk_adress .= '<li>' . get_field('address_three', 'option') . '</li>';
+	}
+
+	return '<ul class="unordered-list bullet-primary">' . $brk_adress . '</ul>';
 };
 
 function brk_adress_only()

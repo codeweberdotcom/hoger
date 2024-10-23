@@ -47,7 +47,7 @@ global $codeweber;
                            </div>
                            <!-- /column -->
                            <div class="<?php echo $col_class_2; ?>">
-                              <figure><img class="img-fluid rounded" src="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_about_4'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'sandbox_about_4'); ?>" alt="" /></figure>
+                              <figure><img class="img-fluid rounded" src="<?php echo get_the_post_thumbnail_url($post_id, 'archive_4_1'); ?>" srcset="<?php echo get_the_post_thumbnail_url($post_id, 'archive_4_1'); ?>" alt="" /></figure>
                            </div>
                            <!-- /column -->
                         </div>

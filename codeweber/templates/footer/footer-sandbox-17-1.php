@@ -9,7 +9,7 @@
               <!-- /.widget -->
            </div>
            <!-- /column -->
-           <div class="col-md-4 col-lg-2 offset-lg-2">
+           <div class="col-md-4 col-lg-2 offset-lg-1">
               <div class="widget">
                  <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Services', 'codeweber'); ?></h4>
                  <?php get_template_part('templates/components/footer-menu-light', ''); ?>
@@ -26,7 +26,7 @@
               <!-- /.widget -->
            </div>
            <!-- /column -->
-           <div class="col-md-4 col-lg-2">
+           <div class="col-md-4 col-lg-3">
               <div class="widget">
                  <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Address', 'codeweber'); ?></h4>
                  <address><?php echo brk_adress(); ?></address>

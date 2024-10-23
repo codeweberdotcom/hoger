@@ -27,7 +27,7 @@ $block = new CW_Settings(
          'data_thumbs' => NULL,
          'wrapper_image_class' => '',
          'image_pattern' => '<figure %5$s %9$s>%6$s<img %4$s src="%1$s" srcset="%1$s" %3$s />%7$s %10$s %11$s</figure>',
-         'image_thumb_size' => 'project_4_1',
+         'image_thumb_size' => 'sandbox_hero_3',
          'image_demo' => '<figure class="rounded"><img src="' . get_template_directory_uri() . '/dist/img/photos/about7.jpg" srcset="' . get_template_directory_uri() . '/dist/img/photos/about7@2x.jpg 2x" alt=""></figure>',
          'image_big_size' => 'project_1',
          'img_link' => '/dist/img/photos/about7.jpg',
