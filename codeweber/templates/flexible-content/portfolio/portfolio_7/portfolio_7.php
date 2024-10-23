@@ -59,7 +59,7 @@ $block = new CW_Settings(
             <!-- /column -->
          </div>
          <!-- /.row -->
-         <div class="container-fluid px-md-6">
+         <div class="container-fluid">
             <?php
             $query = new WP_Query($argss);
             if ($query->have_posts()) { ?>
