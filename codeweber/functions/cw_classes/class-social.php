@@ -109,7 +109,19 @@ class CW_Social
                   if (get_sub_field('behance') && $this->type_social == 'Type 1') {
                      $social_final_array[] =  sprintf($pattern_1, get_sub_field('behance'), 'behance');
                   } elseif (get_sub_field('behance')) {
-                     $social_final_array[] =  sprintf($pattern_2, get_sub_field('twitch'), 'behance');
+                     $social_final_array[] =  sprintf($pattern_2, get_sub_field('behance'), 'behance');
+                  }
+
+                  if (get_sub_field('twitch') && $this->type_social == 'Type 1') {
+                     $social_final_array[] =  sprintf($pattern_1, get_sub_field('twitch'), 'twitch');
+                  } elseif (get_sub_field('twitch')) {
+                     $social_final_array[] =  sprintf($pattern_2, get_sub_field('twitch'), 'twitch');
+                  }
+
+                  if (get_sub_field('pinterest') && $this->type_social == 'Type 1') {
+                     $social_final_array[] =  sprintf($pattern_1, get_sub_field('pinterest'), 'pinterest');
+                  } elseif (get_sub_field('pinterest')) {
+                     $social_final_array[] =  sprintf($pattern_2, get_sub_field('pinterest'), 'pinterest');
                   }
                }
             }
