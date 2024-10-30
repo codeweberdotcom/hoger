@@ -31,7 +31,7 @@ function social_icons_option()
 
       if ($social_icons !== NULL) { ?>
          <div class="widget">
-            <div class="widget-title mb-3 h4"><?php esc_html_e('Follow Us', 'codeweber'); ?></div>
+            <div class="widget-title display-6 fs-18 mb-3"><?php esc_html_e('Follow Us', 'codeweber'); ?></div>
             <nav class="nav social">
                <?php if (class_exists('ACF')) {
                   echo $social_icons;
@@ -69,7 +69,7 @@ function offcanvas_menu_option()
    if (has_nav_menu('offcanvas_right')) { ?>
 
       <div class="widget mb-8">
-         <div class="widget-title mb-3 h4"><?php esc_html_e('Learn More', 'codeweber'); ?></div>
+         <div class="widget-title display-6 fs-18 mb-3"><?php esc_html_e('Learn More', 'codeweber'); ?></div>
          <?php
          wp_nav_menu(
             array(
@@ -98,7 +98,7 @@ function offcanvas_menu_option()
 function offcanvas_contact_option()
 { ?>
    <div class="widget mb-8">
-      <div class="widget-title mb-3 h4"><?php esc_html_e('Contact Info', 'codeweber'); ?></div>
+      <div class="widget-title display-6 fs-18 mb-3"><?php esc_html_e('Contact Info', 'codeweber'); ?></div>
       <address> <?php echo brk_adress(); ?> </address>
       <a href="mailto:<?php brk_email(); ?>"><?php echo brk_email(); ?></a><br />
       <?php echo brk_phones(NULL); ?>
