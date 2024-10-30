@@ -19,9 +19,9 @@
            <!-- /column -->
            <div class="col-md-4 col-lg-2">
               <div class="widget">
-                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Phone', 'codeweber'); ?></h4>
-                 <?php echo brk_phone_one(NULL); ?><br />
-                 <?php echo brk_phone_two(NULL); ?><br />
+                 <h4 class="widget-title display-6 fs-18 text-white mb-3"><?php esc_html_e('Contacts', 'codeweber'); ?></h4>
+                 <?php md_offcanvas_contact_option(); ?>
+
               </div>
               <!-- /.widget -->
            </div>
@@ -42,7 +42,7 @@
                  <?php echo year_of_birth_company(); ?></a>
               <br class="d-block d-lg-none" /><?php echo esc_html__('All rights reserved.', 'codeweber'); ?>
            </p>
-           <nav class="nav social social-white text-md-end">
+           <nav class="nav social text-md-end">
               <?php if (class_exists('ACF')) {
                   get_template_part('templates/components/socialicons', '');
                }; ?>

@@ -28,8 +28,6 @@
 background-color: #292728;
 }
 
-
-
 header, .navbar-stick {
   position: relative;
   padding-bottom: 5px;
@@ -98,4 +96,16 @@ body {
 
 .item figure .item-link:hover, .item figure .item-link {
     color: #9c886f;
+}
+
+.block-woocommerce h2.post-title {
+    min-height: 50px;
+}
+
+nav.nav.social a {
+    align-content: center;
+}
+
+nav.social svg {
+    fill: #9c886f !important;
 }
