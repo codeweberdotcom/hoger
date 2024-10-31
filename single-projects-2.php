@@ -8,19 +8,36 @@ get_header('transparent');
 global $post;
 if (have_rows('main_information')) :
    while (have_rows('main_information')) : the_row();
-      if (get_sub_field('date')) {
-         $project_date = get_sub_field('date');
-      }
-      if (get_sub_field('link')) {
-         $project_link = get_sub_field('link');
+
+      if (get_sub_field('address')) {
+         $project_address = get_sub_field('address');
       } else {
-         $project_link = NULL;
+         $project_address = NULL;
       }
-      if (get_sub_field('cms')) {
-         $project_cms = get_sub_field('cms');
+
+      // if (get_sub_field('zodchestvo')) {
+      //    $project_zodchestvo = get_sub_field('zodchestvo');
+      // } else {
+      //    $project_zodchestvo = NULL;
+      // }
+
+      if (get_sub_field('developer')) {
+         $project_developer = get_sub_field('developer');
       } else {
-         $project_cms = NULL;
+         $project_developer = NULL;
       }
+
+      if (get_sub_field('architector')) {
+         $project_architector = get_sub_field('architector');
+      } else {
+         $project_architector = NULL;
+      }
+
+
+
+
+
+
       if (get_sub_field('short_description')) {
          $project_short_description = get_sub_field('short_description');
       } else {
@@ -89,45 +106,76 @@ endif; ?>
                <?php } ?>
                <div class="row gx-0">
 
-                  <?php if (isset($project_date) && isset($project_cms) && isset($project_link)) {
-                     $class_col_one = "col-md-9";
-                  } else {
-                     $class_col_one = "col-md-12";
-                  } ?>
+                  <?php $class_col_one = "col-md-12"; ?>
 
                   <div class="<?php echo $class_col_one; ?> text-justify">
-                     <?php if (isset($project_description)) { ?>
-                        <?php echo $project_description; ?>
-                     <?php } else { ?>
-                        <p>Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum.</p>
-                        <p>Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-                     <?php } ?>
+
+
+
+                     <ul class="list-unstyled">
+                        <?php if (isset($project_address)) { ?>
+                           <li>
+                              <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Адрес объекта', 'codeweber'); ?></div>
+                              <p><?php echo $project_address; ?></p>
+                           </li>
+                        <?php }; ?>
+
+
+                        <?php if (isset($project_developer)) { ?>
+                           <li>
+                              <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Девелопер проекта', 'codeweber'); ?></div>
+                              <p><?php echo $project_developer; ?></p>
+                           </li>
+                        <?php }; ?>
+
+                        <?php if (isset($project_architector)) { ?>
+                           <li>
+                              <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Архитектор проекта', 'codeweber'); ?></div>
+                              <p><?php echo $project_architector; ?></p>
+                           </li>
+                        <?php }; ?>
+                     </ul>
+
+
+
+                     <?php if (have_rows('main_information')) :
+                        while (have_rows('main_information')) : the_row();
+
+                           if (get_sub_field('title_works')) {
+                              echo '<div class="display-6 fs-16 mb-1 text-primary">' . get_sub_field('title_works') . '</div>';
+                           } else {
+                              echo '<div class="display-6 fs-16 mb-1 text-primary">На объекте были выполнены следющие работы:</div>';
+                           }
+
+
+
+
+                           if (have_rows('works')) : ?>
+
+                              <ul class="unordered-list bullet-primary">
+
+                                 <?php
+                                 $project_works = '';
+                                 while (have_rows('works')) : the_row();
+                                    echo '<li>' . get_sub_field('work') . '</li>';
+                                 endwhile;
+                                 ?>
+                              </ul>
+                     <?php
+                           else :
+                              $project_works = NULL;
+                           endif;
+
+                        endwhile;
+                     endif; ?>
+
+
+
+
+
                   </div>
                   <!--/column -->
-                  <?php if (isset($project_date) && isset($project_cms) && isset($project_link)) { ?>
-                     <div class="col-md-2 ms-auto">
 
-                        <ul class="list-unstyled">
-                           <?php if (isset($project_date)) { ?>
-                              <li>
-                                 <div class="h5 mb-1"><?php echo __('Date', 'codeweber'); ?></div>
-                                 <p><?php echo $project_date; ?></p>
-                              </li>
-                           <?php }; ?>
-                           <?php if (isset($project_cms)) { ?>
-                              <li>
-                                 <div class="h5 mb-1"><?php echo __('CMS', 'codeweber'); ?></div>
-                                 <p><?php echo $project_cms; ?></p>
-                              </li>
-                           <?php }; ?>
-                        </ul>
-
-                        <?php if (isset($project_link)) { ?>
-                           <a href="<?php echo $project_link; ?>" class="more hover"><?php echo __('Go to the website', 'codeweber'); ?></a>
-                        <?php }; ?>
-                     </div>
-                     <!--/column -->
-                  <?php }; ?>
                </div>
                <!--/.row -->
             </article>

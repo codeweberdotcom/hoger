@@ -19,44 +19,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_638537154c37d",
-                    "label": "Дата",
-                    "name": "date",
-                    "aria-label": "",
-                    "type": "date_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y",
-                    "return_format": "F j, Y",
-                    "first_day": 1
-                },
-                {
                     "key": "field_638537304c37e",
-                    "label": "Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_638537574c37f",
-                    "label": "Платформа",
-                    "name": "cms",
+                    "label": "Address",
+                    "name": "address",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -68,10 +33,120 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
                     "placeholder": "",
                     "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "append": ""
+                },
+                {
+                    "key": "field_638537574c37f",
+                    "label": "Developer",
+                    "name": "developer",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_672352afe2b22",
+                    "label": "Architector",
+                    "name": "architector",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_67235bfd04bcf",
+                    "label": "Title Works",
+                    "name": "title_works",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_638537154c37d",
+                    "label": "Works",
+                    "name": "works",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Добавить",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_67235304e2b23",
+                            "label": "Work",
+                            "name": "work",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_638537154c37d"
+                        }
+                    ]
                 },
                 {
                     "key": "field_6387e43a12661",
@@ -211,6 +286,7 @@
                         "id": ""
                     },
                     "layout": "block",
+                    "parent_repeater": "field_6387e1ddbef45",
                     "sub_fields": [
                         {
                             "key": "field_6387e23fbef49",
@@ -257,8 +333,7 @@
                             "max_size": "",
                             "mime_types": ""
                         }
-                    ],
-                    "parent_repeater": "field_6387e1ddbef45"
+                    ]
                 }
             ]
         }
@@ -281,5 +356,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710513159
+    "modified": 1730371591
 }
