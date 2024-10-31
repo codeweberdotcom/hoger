@@ -33,11 +33,6 @@ if (have_rows('main_information')) :
          $project_architector = NULL;
       }
 
-
-
-
-
-
       if (get_sub_field('short_description')) {
          $project_short_description = get_sub_field('short_description');
       } else {
@@ -105,76 +100,75 @@ endif; ?>
                   <h2 class="display-6 mb-4"><?php esc_html_e('Title', 'codeweber'); ?></h2>
                <?php } ?>
                <div class="row gx-0">
-
                   <?php $class_col_one = "col-md-12"; ?>
 
                   <div class="<?php echo $class_col_one; ?> text-justify">
-
-
-
-                     <ul class="list-unstyled">
+                     <table class="table">
                         <?php if (isset($project_address)) { ?>
-                           <li>
-                              <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Адрес объекта', 'codeweber'); ?></div>
-                              <p><?php echo $project_address; ?></p>
-                           </li>
+                           <tr>
+                              <td class="ps-0">
+                                 <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Адрес объекта', 'codeweber'); ?></div>
+                              </td>
+                              <td class="ps-0">
+                                 <?php echo $project_address; ?>
+                              </td>
+                           </tr>
                         <?php }; ?>
-
-
                         <?php if (isset($project_developer)) { ?>
-                           <li>
-                              <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Девелопер проекта', 'codeweber'); ?></div>
-                              <p><?php echo $project_developer; ?></p>
-                           </li>
+                           <tr>
+                              <td class="ps-0">
+                                 <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Девелопер проекта', 'codeweber'); ?></div>
+                              </td>
+                              <td class="ps-0">
+                                 <?php echo $project_developer; ?>
+                              </td>
+                           </tr>
                         <?php }; ?>
-
                         <?php if (isset($project_architector)) { ?>
-                           <li>
-                              <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Архитектор проекта', 'codeweber'); ?></div>
-                              <p><?php echo $project_architector; ?></p>
-                           </li>
+                           <tr>
+                              <td class="ps-0">
+                                 <div class="display-6 fs-16 mb-1 text-primary"><?php echo __('Архитектор проекта', 'codeweber'); ?></div>
+                              </td>
+                              <td class="ps-0">
+                                 <?php echo $project_architector; ?>
+                              </td>
+                           </tr>
                         <?php }; ?>
-                     </ul>
 
 
+                        <?php if (have_rows('main_information')) :
+                           while (have_rows('main_information')) : the_row();
 
-                     <?php if (have_rows('main_information')) :
-                        while (have_rows('main_information')) : the_row();
+                              if (get_sub_field('title_works')) {
+                                 echo '<tr><td class="ps-0"><div class="display-6 fs-16 mb-1 text-primary">' . get_sub_field('title_works') . '</div></td>';
+                              } else {
+                                 echo '<tr><td class="ps-0"><div class="display-6 fs-16 mb-1 text-primary">На объекте были выполнены следющие работы:</div></td>';
+                              }
 
-                           if (get_sub_field('title_works')) {
-                              echo '<div class="display-6 fs-16 mb-1 text-primary">' . get_sub_field('title_works') . '</div>';
-                           } else {
-                              echo '<div class="display-6 fs-16 mb-1 text-primary">На объекте были выполнены следющие работы:</div>';
-                           }
+                              if (have_rows('works')) : ?>
 
-
-
-
-                           if (have_rows('works')) : ?>
-
-                              <ul class="unordered-list bullet-primary">
-
-                                 <?php
-                                 $project_works = '';
-                                 while (have_rows('works')) : the_row();
-                                    echo '<li>' . get_sub_field('work') . '</li>';
-                                 endwhile;
-                                 ?>
-                              </ul>
-                     <?php
-                           else :
-                              $project_works = NULL;
-                           endif;
-
-                        endwhile;
-                     endif; ?>
-
-
-
-
-
+                                 <td class="ps-0">
+                                    <ul class="unordered-list bullet-primary">
+                                       <?php
+                                       $project_works = '';
+                                       while (have_rows('works')) : the_row();
+                                          echo '<li>' . get_sub_field('work') . '</li>';
+                                       endwhile;
+                                       ?>
+                                    </ul>
+                                 </td>
+                                 </tr>
+                        <?php
+                              else :
+                                 $project_works = NULL;
+                              endif;
+                           endwhile;
+                        endif; ?>
+                     </table>
                   </div>
                   <!--/column -->
+
+
 
                </div>
                <!--/.row -->
