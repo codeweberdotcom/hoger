@@ -35,7 +35,7 @@
 
                   while ($query->have_posts()) {
                      $query->the_post();
-                     $size_img = array('archive_4', 'archive_4_1', 'archive_4_2');
+                     $size_img = array('archive_4');
                      $size_finish = array_rand($size_img, 1);
                      $taxonomy_list = wp_get_post_terms($post->ID, 'projects_category', array('fields' => 'names')); ?>
                    <?php $taxonomy_list_slug = wp_get_post_terms($post->ID, 'projects_category', array('fields' => 'slugs')); ?>
@@ -56,7 +56,7 @@
                       </figure>
                       <div class="project-details d-flex justify-content-center flex-column">
                          <div class="post-header">
-                            <div class="post-category text-line mb-3 text-primary"><?php echo implode(', ', $taxonomy_list); ?></div>
+                            <div class="post-category text-line mb-3 text-primary"><?php echo $taxonomy_list['0']; ?></div>
                             <h3 class="post-title"><?php echo esc_html($post->post_title); ?></h3>
                          </div>
                          <!-- /.post-header -->
