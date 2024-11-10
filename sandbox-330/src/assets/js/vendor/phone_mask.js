@@ -1,6 +1,8 @@
 window.addEventListener("DOMContentLoaded", function () {
-  [].forEach.call(document.querySelectorAll("#floatingTel"), function (e) {
+  // Выбираем все элементы с классом "tel-mask"
+  document.querySelectorAll(".tel-mask").forEach(function (e) {
     var a;
+
     function t(e) {
       e.keyCode && (a = e.keyCode);
       this.selectionStart < 3 && e.preventDefault();
@@ -20,15 +22,18 @@ window.addEventListener("DOMContentLoaded", function () {
               return "\\d{1," + e.length + "}";
             })
             .replace(/[+()]/g, "\\$&"));
+
       (!(t = new RegExp("^" + t + "$")).test(this.value) ||
         this.value.length < 5 ||
         (47 < a && a < 58)) &&
         (this.value = r),
         "blur" == e.type && this.value.length < 5 && (this.value = "");
     }
-    e.addEventListener("input", t, !1),
-      e.addEventListener("focus", t, !1),
-      e.addEventListener("blur", t, !1),
-      e.addEventListener("keydown", t, !1);
+
+    // Назначаем события каждому полю с маской
+    e.addEventListener("input", t, false);
+    e.addEventListener("focus", t, false);
+    e.addEventListener("blur", t, false);
+    e.addEventListener("keydown", t, false);
   });
 });
