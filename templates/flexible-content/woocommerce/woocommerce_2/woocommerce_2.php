@@ -112,14 +112,16 @@ if (!function_exists('get_products_by_term_id')) {
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
          </div>
          <div class="offcanvas-body pb-6">
+
             <div class="row row-cols-1 row-cols-md-1 gx-0 gx-md-8 gx-xl-12 gy-5">
                <?php
                if ($products->have_posts()) :
                   while ($products->have_posts()) : $products->the_post();
+
                      // Получаем ссылку на основное изображение товара
                      $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                ?>
-                     <a href="<?php echo esc_url($thumbnail_url); ?>" data-glightbox="description: .caption1" data-gallery="<?php echo esc_attr($term->term_id); ?>" class="item-link col project item text-uppercase">
+                     <a href="<?php echo esc_url($thumbnail_url); ?>" data-glightbox="title: <?php echo get_the_title(); ?>" data-gallery="<?php echo esc_attr($term->term_id); ?>" class="item-link col project item text-uppercase">
                         <figure class="rounded overlay overlay-1">
                            <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
                            <span class="bg"></span>
@@ -129,9 +131,7 @@ if (!function_exists('get_products_by_term_id')) {
                            </figcaption>
                         </figure>
                      </a>
-                     <div class="glightbox-desc caption1">
-                        <p class="display-6 fs-18"><?php echo esc_html(get_the_title()); ?></p>
-                     </div>
+
                <?php
                   endwhile;
                   wp_reset_postdata(); // Сбрасываем данные запроса
