@@ -7,7 +7,7 @@
 $block = new CW_Settings(
    $cw_settings = array(
       'subtitle' => 'Our Models',
-      'patternSubtitle' => '<h2 class="fs-16 text-uppercase text-muted mb-3 %2$s">%1$s</h2>',
+      'patternSubtitle' => '<p class="lead fs-lg %2$s">%1$s</p>',
 
       'title' => 'Check out some of our awesome projects with creative ideas and great design.',
       'patternTitle' => '<h3 class="display-4 mb-10 %2$s">%1$s</h3>',
