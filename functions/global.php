@@ -143,13 +143,19 @@ function codeweber_breadcrumbs($align, $color, $show)
 				10,
 				3
 			);
+		}else{
+			add_filter(
+				'rank_math/frontend/breadcrumb/html',
+				function ($html, $crumbs, $class) {
+					$html = str_replace('<span class="separator">', '', $html);
+					$html = str_replace('</span>', '', $html);
+					return $html;
+				},
+				10,
+				3
+			);
 		}
-		add_filter('rank_math/frontend/breadcrumbs', function ($output) {
-			$output = str_replace('<span class="separator">', '', $output);
-			$output = str_replace('</span>', '', $output);
-			return $output;
-		});
-
+		
 		rank_math_the_breadcrumbs();
 	} elseif (function_exists("seopress_display_breadcrumbs") && $show == true) {
 		seopress_display_breadcrumbs();
@@ -617,3 +623,6 @@ function save_main_tag_meta($post_id)
 	}
 }
 add_action('save_post', 'save_main_tag_meta');
+
+
+add_theme_support('rank-math-breadcrumbs');

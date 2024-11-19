@@ -7,10 +7,10 @@
 $block = new CW_Settings(
    $cw_settings = array(
       'subtitle' => 'Our Models',
-      'patternSubtitle' => '<p class="lead fs-lg %2$s">%1$s</p>',
+      'patternSubtitle' => '<p class="lead fs-lg mb-6 %2$s">%1$s</p>',
 
       'title' => 'Check out some of our awesome projects with creative ideas and great design.',
-      'patternTitle' => '<h3 class="display-4 mb-10 %2$s">%1$s</h3>',
+      'patternTitle' => '<h3 class="display-4 mb-6 %2$s">%1$s</h3>',
 
       'background_class_default' => 'wrapper bg-light',
 

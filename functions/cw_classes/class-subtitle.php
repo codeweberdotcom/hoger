@@ -259,7 +259,7 @@ class CW_SubTitle
 
       if ($type_subtitle == 'Type 1') {
          if (get_theme_mod('codeweber_sub_title_color') !== 'default') {
-            $sub_title_pattern = '<h2 class="fs-16 text-uppercase ' . get_theme_mod('codeweber_sub_title_color') . ' mb-3 ' . $class_p . '">%s</h2>';
+            $sub_title_pattern = '<h2 class="fs-16 text-line text-uppercase ' . get_theme_mod('codeweber_sub_title_color') . ' mb-3 ' . $class_p . '">%s</h2>';
          }
 
          if (get_theme_mod('codeweber_sub_title') !== 'default') {
