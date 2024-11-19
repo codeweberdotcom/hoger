@@ -114,3 +114,23 @@ nav.social svg {
 .project-details.d-flex.justify-content-center.flex-column {
     min-height: 100px;
 }
+
+.count_image {
+    position: absolute;
+	z-index: 1
+}
+
+.woo-3 .title-wrap-cw:after{
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.8) 82%, #000 97.5%);
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+	z-index: -1;
+}
+
+.title-wrap-cw {
+	z-index: 1;
+}
