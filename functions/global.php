@@ -626,3 +626,9 @@ add_action('save_post', 'save_main_tag_meta');
 
 
 add_theme_support('rank-math-breadcrumbs');
+
+if (version_compare($GLOBALS['wp_version'], '6.7', '<')) {
+	load_theme_textdomain('codeweber', get_template_directory() . '/languages');
+} else {
+	load_textdomain('codeweber', get_template_directory() . '/languages/' . determine_locale() . '.mo');
+}
