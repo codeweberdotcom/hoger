@@ -56,7 +56,20 @@
                       </figure>
                       <div class="project-details d-flex justify-content-center flex-column">
                          <div class="post-header">
-                            <div class="post-category text-line mb-3 text-primary"><?php echo $taxonomy_list['0']; ?></div>
+
+                            <?php
+                              $main_tag_id = get_post_meta(get_the_ID(), '_main_tag', true);
+                              if ($main_tag_id) {
+                                 $main_tag = get_term($main_tag_id, 'projects_category'); // или ваша таксономия
+                                 $main_tag_name = $main_tag->name;
+                              } else {
+
+                                 $main_tag_name = null;
+                              }
+
+
+                              ?>
+                            <div class="post-category text-line mb-3 text-primary"><?php echo esc_html($main_tag_name); ?></div>
                             <h3 class="post-title"><?php echo esc_html($post->post_title); ?></h3>
                          </div>
                          <!-- /.post-header -->

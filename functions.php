@@ -1,5 +1,11 @@
 <?php
 
+// Подключаем текстовый домен для переводов темы
+function my_theme_load_textdomain()
+{
+  load_theme_textdomain('codeweber', get_template_directory() . '/languages');
+}
+add_action('after_setup_theme', 'my_theme_load_textdomain');
 
 /**
  *  https://developer.wordpress.org/themes/basics/theme-functions/
@@ -83,4 +89,3 @@ require_once get_template_directory() . '/functions/classes/classes.php'; // ---
 if (class_exists('WooCommerce')) {
   require_once get_template_directory() . '/functions/woocommerce/woocommerce.php'; // --- Woocommerce Functions ---
 }
-

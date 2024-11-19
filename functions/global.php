@@ -149,7 +149,7 @@ function codeweber_breadcrumbs($align, $color, $show)
 			$output = str_replace('</span>', '', $output);
 			return $output;
 		});
-		
+
 		rank_math_the_breadcrumbs();
 	} elseif (function_exists("seopress_display_breadcrumbs") && $show == true) {
 		seopress_display_breadcrumbs();
@@ -576,6 +576,19 @@ function metrics()
 };
 
 
+
+function add_custom_meta_box()
+{
+	add_meta_box(
+		'main_tag_meta_box',
+		'Основная метка',
+		'main_tag_meta_box_callback',
+		'projects', // Ваш CPT
+		'side',
+		'high'
+	);
+}
+add_action('add_meta_boxes', 'add_custom_meta_box');
 
 
 function main_tag_meta_box_callback($post)

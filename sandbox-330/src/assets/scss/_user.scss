@@ -110,10 +110,7 @@ nav.social svg {
     fill: #9c886f !important;
 }
 
-.project-details h3 {
-    min-height: 60px !important;
-}
 
-.project-details .post-category.text-line.mb-3.text-primary {
-    min-height: 20px;
+.project-details.d-flex.justify-content-center.flex-column {
+    min-height: 100px;
 }
