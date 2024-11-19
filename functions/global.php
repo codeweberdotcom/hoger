@@ -85,6 +85,7 @@ function codeweber_breadcrumbs($align, $color, $show)
 				function ($args) {
 					$args = array(
 						'delimiter'   => '',
+						'separator'   => '',
 						'wrap_before' => '<nav class="d-inline-block" aria-label="breadcrumb"><ol class="breadcrumb mb-0 justify-content-center">',
 						'wrap_after'  => '</ol></nav>',
 						'before'      =>
@@ -100,7 +101,8 @@ function codeweber_breadcrumbs($align, $color, $show)
 				'rank_math/frontend/breadcrumb/args',
 				function ($args) {
 					$args = array(
-						'delimiter'   => '',
+						'delimiter'   => '&nbsp;/&nbsp;',
+						'separator'   => '',
 						'wrap_before' => '<nav class="d-inline-block" aria-label="breadcrumb"><ol class="breadcrumb mb-0 justify-content-end">',
 						'wrap_after'  => '</ol></nav>',
 						'before'      =>
@@ -116,7 +118,8 @@ function codeweber_breadcrumbs($align, $color, $show)
 				'rank_math/frontend/breadcrumb/args',
 				function ($args) {
 					$args = array(
-						'delimiter'   => '',
+						'delimiter'   => '&nbsp;/&nbsp;',
+						'separator'   => '',
 						'wrap_before' => '<nav class="d-inline-block" aria-label="breadcrumb"><ol class="breadcrumb mb-0">',
 						'wrap_after'  => '</ol></nav>',
 						'before'      =>
@@ -133,13 +136,20 @@ function codeweber_breadcrumbs($align, $color, $show)
 				function ($html, $crumbs, $class) {
 					$html = str_replace('<li class="breadcrumb-item text-muted">', '<li class="breadcrumb-item text-white">', $html);
 					$html = str_replace('<span class="text-muted">', '<span class="text-white">', $html);
+					$html = str_replace('<span class="separator">', '', $html);
+					$html = str_replace('</span>', '', $html);
 					return $html;
 				},
 				10,
 				3
 			);
 		}
-
+		add_filter('rank_math/frontend/breadcrumbs', function ($output) {
+			$output = str_replace('<span class="separator">', '', $output);
+			$output = str_replace('</span>', '', $output);
+			return $output;
+		});
+		
 		rank_math_the_breadcrumbs();
 	} elseif (function_exists("seopress_display_breadcrumbs") && $show == true) {
 		seopress_display_breadcrumbs();
@@ -564,3 +574,33 @@ function metrics()
 		the_field('counter_google', 'option');
 	}
 };
+
+
+
+
+function main_tag_meta_box_callback($post)
+{
+	// Получаем текущие метки
+	$tags = get_terms([
+		'taxonomy' => 'projects_category', // или ваша таксономия
+		'orderby' => 'name',
+		'hide_empty' => false,
+	]);
+
+	// Извлекаем сохранённое значение основной метки
+	$selected_tag = get_post_meta($post->ID, '_main_tag', true);
+
+	echo '<select name="main_tag">';
+	foreach ($tags as $tag) {
+		echo '<option value="' . esc_attr($tag->term_id) . '" ' . selected($selected_tag, $tag->term_id, false) . '>' . esc_html($tag->name) . '</option>';
+	}
+	echo '</select>';
+}
+
+function save_main_tag_meta($post_id)
+{
+	if (isset($_POST['main_tag'])) {
+		update_post_meta($post_id, '_main_tag', $_POST['main_tag']);
+	}
+}
+add_action('save_post', 'save_main_tag_meta');
