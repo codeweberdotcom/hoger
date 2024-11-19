@@ -42,8 +42,27 @@ $block = new CW_Settings(
                      if ($main_image_id) {
                         $total_images_count += 1;
                      }
-                     $image_html = get_the_post_thumbnail($post_ids, 'archive_4', ['class' => 'img-fluid']);
-                     $image_link = get_the_post_thumbnail_url($post_ids, 'sandbox_hero_18');
+                     
+
+
+                     
+                   
+
+                     if (has_post_thumbnail($post_ids)) {
+                        // Если есть, получаем HTML миниатюры
+                        $image_html = get_the_post_thumbnail($post_ids, 'archive_4', ['class' => 'img-fluid']);
+                        $image_link = get_the_post_thumbnail_url($post_ids, 'sandbox_hero_18');
+
+                     } else {
+                        // Если нет, выводим плейсхолдер
+                        $image_html = '<img src="'
+                        . get_template_directory_uri().'/dist/img/placeholder_600x600.jpeg" class="img-fluid" alt="Placeholder Image">';
+                        $image_link = NULL;
+                     }
+                  
+                     
+                     
+
                      ?>
                      <div class="project item col-12 col-md-4 col-lg-4 col-xl-4">
                         <div class="position-relative lift">
