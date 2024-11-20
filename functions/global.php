@@ -579,6 +579,7 @@ function metrics()
 	if (get_field('counter_google', 'option')) {
 		the_field('counter_google', 'option');
 	}
+	
 };
 
 

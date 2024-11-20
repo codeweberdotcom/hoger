@@ -56,6 +56,15 @@ function сf7_modal_after_sent()
             }
             setTimeout(CloseThankYouModal, 5000);
         }, false);
+
+        document.addEventListener('wpcf7mailsent', function(event) {
+            // Найти все кнопки с классом modal-body .btn-close
+            const buttons = document.querySelectorAll('.modal-body .btn-close');
+            // Кликнуть по каждой найденной кнопке
+            buttons.forEach(function(button) {
+                button.click();
+            });
+        }, false);
     </script>
 <?php
 }

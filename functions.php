@@ -89,3 +89,6 @@ require_once get_template_directory() . '/functions/classes/classes.php'; // ---
 if (class_exists('WooCommerce')) {
   require_once get_template_directory() . '/functions/woocommerce/woocommerce.php'; // --- Woocommerce Functions ---
 }
+
+
+
