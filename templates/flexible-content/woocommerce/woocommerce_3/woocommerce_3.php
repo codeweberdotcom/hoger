@@ -31,7 +31,7 @@ $block = new CW_Settings(
             <div class="row  isotope">
                <?php $product = get_sub_field('product'); ?>
                <?php if ($product) {
-                   foreach ($product as $post_ids) {
+                  foreach ($product as $post_ids) {
                      $main_image_id = get_post_thumbnail_id($post_ids);
                      $gallery_images = get_post_meta($post_ids, '_product_image_gallery', true);
                      $gallery_images_ids = $gallery_images ? explode(',', $gallery_images) : [];
@@ -42,16 +42,15 @@ $block = new CW_Settings(
                      if (has_post_thumbnail($post_ids)) {
                         $image_html = get_the_post_thumbnail($post_ids, 'archive_4', ['class' => 'img-fluid']);
                         $image_link = get_the_post_thumbnail_url($post_ids, 'sandbox_hero_18');
-
                      } else {
                         $image_html = '<img src="'
-                        . get_template_directory_uri().'/dist/img/placeholder_600x600.jpeg" class="img-fluid" alt="Placeholder Image">';
+                           . get_template_directory_uri() . '/dist/img/placeholder_600x600.jpeg" class="img-fluid" alt="Placeholder Image">';
                         $image_link = get_template_directory_uri() . '/dist/img/placeholder_600x600.jpeg';
                      }
-                     ?>
+               ?>
                      <div class="project item col-12 col-md-4 col-lg-4 col-xl-4">
                         <div class="position-relative lift">
-                           <a data-glightbox href="<?php echo $image_link; ?>" data-gallery="<?php echo $post_ids; ?>" class="position-relative
+                           <a data-glightbox href="<?php echo $image_link; ?>" data-gallery="<?php echo $post_ids; ?><?php echo esc_html($args['block_id']); ?>" class="position-relative
     ">
                               <figure class="rounded mb-6">
                                  <?php echo $image_html;
@@ -61,11 +60,11 @@ $block = new CW_Settings(
                                  <?php echo get_the_title($post_ids); ?>
                               </h2>
 
-                              <?php if($total_images_count > 1){ ?>
-                              <div class="count_image text-white position-absolute bottom-0 end-0 p-3">
-                                 <span class="icon_count_wrap"><i class="uil uil-images"></i></span>
-                                 <span class="count_wrap"><?php echo $total_images_count; ?></span>
-                              </div>
+                              <?php if ($total_images_count > 1) { ?>
+                                 <div class="count_image text-white position-absolute bottom-0 end-0 p-3">
+                                    <span class="icon_count_wrap"><i class="uil uil-images"></i></span>
+                                    <span class="count_wrap"><?php echo $total_images_count; ?></span>
+                                 </div>
                               <?php } ?>
                            </a>
                         </div>
@@ -74,28 +73,28 @@ $block = new CW_Settings(
                      $gallery_images = get_post_meta($post_ids, '_product_image_gallery', true);
                      $gallery_images_ids = $gallery_images ? explode(',', $gallery_images) : []; ?>
                      <div class="d-none"><?php if (!empty($gallery_images_ids)) {
-                            $product_id = $post_ids;
-                            $count = 0; // Инициализируем счётчик
-                            foreach ($gallery_images_ids as $image_id) {
+                                             $product_id = $post_ids;
+                                             $count = 0; // Инициализируем счётчик
+                                             foreach ($gallery_images_ids as $image_id) {
                                                 $count++;
                                                 if ($count === 1) {
                                                    continue;
                                                 }
-                                  $gallery_image = wp_get_attachment_image_src($image_id, 'sandbox_hero_18');
-                                   $gallery_image_url = $gallery_image ? $gallery_image[0] : ''; ?>
+                                                $gallery_image = wp_get_attachment_image_src($image_id, 'sandbox_hero_18');
+                                                $gallery_image_url = $gallery_image ? $gallery_image[0] : ''; ?>
                               <figure class="rounded mb-6">
                                  <img
                                     data-glightbox
-                                    data-gallery="<?php echo $post_ids; ?>"
+                                    data-gallery="<?php echo $post_ids; ?><?php echo esc_html($args['block_id']); ?>"
                                     src="<?php echo esc_url($gallery_image_url); ?>"
                                     alt="Gallery Image"
                                     class="img-fluid">
                               </figure>
-                           <?php };
-                         }; ?>
+                        <?php };
+                                          }; ?>
                      </div>
-                  <?php };
-                }; ?>
+               <?php };
+               }; ?>
             </div>
          </div>
          <?php the_sub_field('shortcode'); ?>
