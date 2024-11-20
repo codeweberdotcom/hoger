@@ -58,36 +58,29 @@ $block = new CW_Settings(
                                        <?php echo $image_html;
                                        ?>
                                        <?php if ($total_images_count > 1) { ?>
-                                          <div class="count_image text-white position-absolute bottom-0 end-0 p-3">
+                                          <div class="count_image text-ash position-absolute bottom-0 end-0 p-3">
                                              <span class="icon_count_wrap"><i class="uil uil-images"></i></span>
                                              <span class="count_wrap"><?php echo $total_images_count; ?></span>
                                           </div>
                                        <?php } ?>
                                     </figure>
                                  </div>
-
                                  <div class="col-lg-6">
                                     <div class="p-4">
                                        <h2 class="display-6 fs-18  woocommerce-loop-product__title">
                                           <?php echo get_the_title($post_ids); ?>
                                        </h2>
-
                                        <?php
                                        $product = wc_get_product($post_ids);
                                        if ($product) {
                                           $description = $product->get_description();
-
                                           if (!empty($description)) {
                                              echo '<div class="product-description">' . esc_html($description) . '</div>';
                                           }
                                        }
                                        ?>
                                     </div>
-
-
                                  </div>
-
-
                               </div>
                            </a>
                         </div>
@@ -100,7 +93,6 @@ $block = new CW_Settings(
                                              $count = 0; // Инициализируем счётчик
                                              foreach ($gallery_images_ids as $image_id) {
                                                 $count++;
-
                                                 $gallery_image = wp_get_attachment_image_src($image_id, 'sandbox_hero_18');
                                                 $gallery_image_url = $gallery_image ? $gallery_image[0] : ''; ?>
                               <figure class="rounded mb-6">

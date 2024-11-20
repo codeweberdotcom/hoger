@@ -61,7 +61,7 @@ $block = new CW_Settings(
                               </h2>
 
                               <?php if ($total_images_count > 1) { ?>
-                                 <div class="count_image text-white position-absolute bottom-0 end-0 p-3">
+                                 <div class="count_image text-ash position-absolute bottom-0 end-0 p-3">
                                     <span class="icon_count_wrap"><i class="uil uil-images"></i></span>
                                     <span class="count_wrap"><?php echo $total_images_count; ?></span>
                                  </div>

@@ -58,7 +58,7 @@ $block = new CW_Settings(
                                        <?php echo $image_html;
                                        ?>
                                        <?php if ($total_images_count > 1) { ?>
-                                          <div class="count_image text-white position-absolute bottom-0 end-0 p-3">
+                                          <div class="count_image text-ash position-absolute bottom-0 end-0 p-3">
                                              <span class="icon_count_wrap"><i class="uil uil-images"></i></span>
                                              <span class="count_wrap"><?php echo $total_images_count; ?></span>
                                           </div>
@@ -70,23 +70,17 @@ $block = new CW_Settings(
                                        <h2 class="display-6 text-center fs-18  woocommerce-loop-product__title">
                                           <?php echo get_the_title($post_ids); ?>
                                        </h2>
-
                                        <?php
                                        $product = wc_get_product($post_ids);
                                        if ($product) {
                                           $description = $product->get_short_description();
-
                                           if (!empty($description)) {
                                              echo '<div class="product-description">' . esc_html($description) . '</div>';
                                           }
                                        }
                                        ?>
                                     </div>
-
-
                                  </div>
-
-
                               </div>
                            </a>
                         </div>
@@ -121,7 +115,6 @@ $block = new CW_Settings(
       </div>
    </div>
    <?php
-
    do_action('button_after_flexible_content_woo_1_');
    ?>
 </section>
