@@ -65,7 +65,6 @@ $block = new CW_Settings(
                                        <?php } ?>
                                     </figure>
                                  </div>
-
                                  <div class="col-lg-12">
                                     <div class="p-4">
                                        <h2 class="display-6 text-center fs-18  woocommerce-loop-product__title">
@@ -75,7 +74,7 @@ $block = new CW_Settings(
                                        <?php
                                        $product = wc_get_product($post_ids);
                                        if ($product) {
-                                          $description = $product->get_description();
+                                          $description = $product->get_short_description();
 
                                           if (!empty($description)) {
                                              echo '<div class="product-description">' . esc_html($description) . '</div>';
