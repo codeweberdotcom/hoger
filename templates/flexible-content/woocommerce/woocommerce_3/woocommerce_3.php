@@ -8,12 +8,9 @@ $block = new CW_Settings(
    $cw_settings = array(
       'subtitle' => 'Our Models',
       'patternSubtitle' => '<p class="lead fs-lg mb-6 %2$s">%1$s</p>',
-
       'title' => 'Check out some of our awesome projects with creative ideas and great design.',
       'patternTitle' => '<h3 class="display-4 mb-6 %2$s">%1$s</h3>',
-
       'background_class_default' => 'wrapper bg-light',
-
       'shapes' => array('<div class="shape bg-line leaf rounded-circle rellax w-17 h-17" data-rellax-speed="1" style="top: -2rem; right: -0.6rem;"></div>', '<div class="shape bg-pale-violet rounded-circle rellax w-17 h-17" data-rellax-speed="1" style="bottom: -2rem; left: -0.4rem;"></div>'),
    )
 );
@@ -42,27 +39,15 @@ $block = new CW_Settings(
                      if ($main_image_id) {
                         $total_images_count += 1;
                      }
-                     
-
-
-                     
-                   
-
                      if (has_post_thumbnail($post_ids)) {
-                        // Если есть, получаем HTML миниатюры
                         $image_html = get_the_post_thumbnail($post_ids, 'archive_4', ['class' => 'img-fluid']);
                         $image_link = get_the_post_thumbnail_url($post_ids, 'sandbox_hero_18');
 
                      } else {
-                        // Если нет, выводим плейсхолдер
                         $image_html = '<img src="'
                         . get_template_directory_uri().'/dist/img/placeholder_600x600.jpeg" class="img-fluid" alt="Placeholder Image">';
                         $image_link = NULL;
                      }
-                  
-                     
-                     
-
                      ?>
                      <div class="project item col-12 col-md-4 col-lg-4 col-xl-4">
                         <div class="position-relative lift">
@@ -75,10 +60,13 @@ $block = new CW_Settings(
                               <h2 class="rounded overflow-hidden title-wrap-cw position-absolute ps-3 pe-10 w-100 pb-3 pt-10 mb-0 bottom-0 start-0 pb-0 mb-0 post-title display-6 fs-18 text-white  woocommerce-loop-product__title">
                                  <?php echo get_the_title($post_ids); ?>
                               </h2>
+
+                              <?php if($total_images_count > 1){ ?>
                               <div class="count_image text-white position-absolute bottom-0 end-0 p-3">
                                  <span class="icon_count_wrap"><i class="uil uil-images"></i></span>
                                  <span class="count_wrap"><?php echo $total_images_count; ?></span>
                               </div>
+                              <?php } ?>
                            </a>
                         </div>
                      </div>
@@ -86,8 +74,13 @@ $block = new CW_Settings(
                      $gallery_images = get_post_meta($post_ids, '_product_image_gallery', true);
                      $gallery_images_ids = $gallery_images ? explode(',', $gallery_images) : []; ?>
                      <div class="d-none"><?php if (!empty($gallery_images_ids)) {
-                            $product_id = $post_ids; 
+                            $product_id = $post_ids;
+                            $count = 0; // Инициализируем счётчик
                             foreach ($gallery_images_ids as $image_id) {
+                                                $count++;
+                                                if ($count === 1) {
+                                                   continue;
+                                                }
                                   $gallery_image = wp_get_attachment_image_src($image_id, 'sandbox_hero_18');
                                    $gallery_image_url = $gallery_image ? $gallery_image[0] : ''; ?>
                               <figure class="rounded mb-6">
