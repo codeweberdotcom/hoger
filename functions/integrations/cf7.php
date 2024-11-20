@@ -28,7 +28,7 @@ function сf7_modal_after_sent()
 {
     echo '<div class="modal fade" id="modal-0166" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-sm">
-    <div class="modal-content">
+    <div class="modal-content bg-soft-primary">
       <div class="modal-body p-6">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             <p class="mb-0">Спасибо за Ваше сообщение.<br>Оно успешно отправлено.</p>
