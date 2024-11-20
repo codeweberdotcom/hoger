@@ -27,7 +27,7 @@ $block = new CW_Settings(
             <?php echo $block->subtitle_second; ?>
             <!--/subtitle -->
          </div>
-         <div class="grid grid-view projects-masonry shop">
+         <div class=" projects-masonry shop">
             <div class="row g-5 isotope">
                <?php $product = get_sub_field('product'); ?>
                <?php if ($product) {
@@ -48,12 +48,12 @@ $block = new CW_Settings(
                         $image_link = get_template_directory_uri() . '/dist/img/placeholder_600x600.jpeg';
                      }
                ?>
-                     <div class="project item col-12 col-md-6 col-lg-6 col-xl-6">
+                     <div class="project item col-12 col-md-6 col-lg-3 col-xl-3">
                         <div class="position-relative">
                            <a data-glightbox href="<?php echo $image_link; ?>" data-gallery="<?php echo $post_ids; ?><?php echo esc_html($args['block_id']); ?>" class="position-relative card lift
     ">
                               <div class="row align-items-center">
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-12">
                                     <figure class="rounded">
                                        <?php echo $image_html;
                                        ?>
@@ -66,9 +66,9 @@ $block = new CW_Settings(
                                     </figure>
                                  </div>
 
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-12">
                                     <div class="p-4">
-                                       <h2 class="display-6 fs-18  woocommerce-loop-product__title">
+                                       <h2 class="display-6 text-center fs-18  woocommerce-loop-product__title">
                                           <?php echo get_the_title($post_ids); ?>
                                        </h2>
 
