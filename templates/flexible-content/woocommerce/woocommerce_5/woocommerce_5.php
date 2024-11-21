@@ -29,6 +29,12 @@ $block = new CW_Settings(
          </div>
          <div class=" projects-masonry shop">
             <div class="row g-5 isotope">
+               <?php if(get_sub_field('column_cw')){
+                  $class = get_sub_field('column_cw');
+               }else{
+                  $class = 'col-12 col-md-6 col-lg-3 col-xl-3';
+               }
+                ?>
                <?php $product = get_sub_field('product'); ?>
                <?php if ($product) {
                   foreach ($product as $post_ids) {
@@ -48,7 +54,7 @@ $block = new CW_Settings(
                         $image_link = get_template_directory_uri() . '/dist/img/placeholder_600x600.jpeg';
                      }
                ?>
-                     <div class="project item col-12 col-md-6 col-lg-3 col-xl-3">
+                     <div class="project item <?php echo $class; ?>">
                         <div class="position-relative">
                            <a data-glightbox href="<?php echo $image_link; ?>" data-gallery="<?php echo $post_ids; ?><?php echo esc_html($args['block_id']); ?>" class="position-relative card lift
     ">
