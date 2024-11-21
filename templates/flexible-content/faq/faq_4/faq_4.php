@@ -20,7 +20,7 @@ $block = new CW_Settings(
       'buttons' => '<a href="#" class="btn btn-primary rounded-pill">All FAQ</a>',
       'buttons_pattern' => '<div class="d-flex justify-content-center justify-content-lg-start flex-wrap" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">%s</div>',
 
-      'background_class_default' => 'wrapper bg-light',
+      'background_class_default' => 'wrapper',
 
       'divider' => true,
 
@@ -92,8 +92,8 @@ $block = new CW_Settings(
 
 
 
-<section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo $block->section_class; ?> <?php echo esc_html($args['block_class']); ?>" <?php echo $block->background_data; ?>>
-   <div class="container py-14 py-md-16">
+<section id="<?php echo esc_html($args['block_id']); ?>" class="<?php echo $block->section_class; ?> " <?php echo $block->background_data; ?>>
+   <div class="container <?php echo esc_html($args['block_class']); ?>">
       <div class="card bg-soft-primary rounded-4">
          <div class="card-body p-md-10 p-xl-11">
             <div class="row gx-lg-8 gx-xl-12 gy-10">
