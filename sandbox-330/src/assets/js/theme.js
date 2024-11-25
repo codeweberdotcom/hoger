@@ -1,28 +1,6 @@
 "use strict";
 
-(function () {
-  "use strict";
-  window.addEventListener(
-    "load",
-    function () {
-      var forms = document.getElementsByClassName("needs-validation");
-      var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener(
-          "submit",
-          function (event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add("was-validated");
-          },
-          false
-        );
-      });
-    },
-    false
-  );
-})();
+
 
 var theme = {
   /**
@@ -32,6 +10,8 @@ var theme = {
    * Do not forget to remove dependency from src/js/vendor/ and recompile.
    */
   init: function () {
+    // Add form validation
+    theme.formValidation();
     theme.stickyHeader();
     theme.subMenu();
     theme.offCanvas();
@@ -61,7 +41,67 @@ var theme = {
     theme.pricingSwitcher();
     theme.textRotator();
     theme.codeSnippet();
+    theme.rippleEffect();
+    theme.addTelMask();
   },
+
+  addTelMask: function () {
+      document.querySelectorAll(".tel-mask").forEach(function (e) {
+        var a;
+        function t(e) {
+          e.keyCode && (a = e.keyCode);
+          this.selectionStart < 3 && e.preventDefault();
+          var t = "+7 (___) ___-__-__",
+            i = 0,
+            s = t.replace(/\D/g, ""),
+            n = this.value.replace(/\D/g, ""),
+            r = t.replace(/[_\d]/g, function (e) {
+              return i < n.length ? n.charAt(i++) || s.charAt(i) : e;
+            }),
+            t =
+              (-1 != (i = r.indexOf("_")) &&
+                (i < 5 && (i = 3), (r = r.slice(0, i))),
+              t
+                .substr(0, this.value.length)
+                .replace(/_+/g, function (e) {
+                  return "\\d{1," + e.length + "}";
+                })
+                .replace(/[+()]/g, "\\$&"));
+
+          (!(t = new RegExp("^" + t + "$")).test(this.value) ||
+            this.value.length < 5 ||
+            (47 < a && a < 58)) &&
+            (this.value = r),
+            "blur" == e.type && this.value.length < 5 && (this.value = "");
+        }
+        e.addEventListener("input", t, false);
+        e.addEventListener("focus", t, false);
+        e.addEventListener("blur", t, false);
+        e.addEventListener("keydown", t, false);
+      });
+  },
+
+  /**
+   * Form Validation
+   * Adds Bootstrap 4/5 form validation behavior
+   */
+  formValidation: function () {
+    var forms = document.getElementsByClassName("needs-validation");
+    Array.prototype.filter.call(forms, function (form) {
+      form.addEventListener(
+        "submit",
+        function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  },
+
   /**
    * Sticky Header
    * Enables sticky behavior on navbar on page scroll
@@ -578,7 +618,7 @@ var theme = {
     selector: "*[data-glightbox]",
     touchNavigation: true,
     loop: false,
-    zoomable: false,
+    zoomable: true,
     autoplayVideos: true,
     moreLength: 0,
     slideExtraAttributes: {
@@ -1047,5 +1087,42 @@ var theme = {
       }, 2300);
     });
   },
+
+  rippleEffect: () => {
+    document.querySelectorAll(".has-ripple").forEach((button) => {
+      // Проверяем, была ли кнопка уже инициализирована
+      if (button.dataset.rippleInitialized) {
+        return;
+      }
+
+      const createRipple = (e) => {
+        const rect = button.getBoundingClientRect();
+        const ripple = document.createElement("span");
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        ripple.className = "a-ripple a-ripple-animate";
+        button.appendChild(ripple);
+        ripple.addEventListener("animationend", () => {
+          ripple.remove();
+        });
+      };
+
+      button.addEventListener("click", createRipple);
+      button.addEventListener("mouseenter", createRipple);
+
+      // Устанавливаем атрибут, чтобы пометить кнопку как инициализированную
+      button.dataset.rippleInitialized = "true";
+    });
+  },
 };
+
+
+
+
+
+
 theme.init();
